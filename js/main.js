@@ -107,14 +107,32 @@
     return;
   }
 
-  var revealObserver = new IntersectionObserver(function (entries, obs) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-in");
-      obs.unobserve(entry.target);
+  // Reveal anything whose top has reached the lower 92% of the viewport, including
+  // elements already scrolled past. (An IntersectionObserver alone misses elements
+  // skipped by a jump such as an anchor link or the End key, leaving them hidden.)
+  var pending = Array.prototype.slice.call(revealEls);
+  var ticking = false;
+  function checkReveal() {
+    ticking = false;
+    var limit = window.innerHeight * 0.92;
+    pending = pending.filter(function (el) {
+      if (el.getBoundingClientRect().top < limit) {
+        el.classList.add("is-in");
+        return false;
+      }
+      return true;
     });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
-  revealEls.forEach(function (el) { revealObserver.observe(el); });
+    if (!pending.length) {
+      window.removeEventListener("scroll", onScrollReveal);
+      window.removeEventListener("resize", onScrollReveal);
+    }
+  }
+  function onScrollReveal() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(checkReveal); }
+  }
+  window.addEventListener("scroll", onScrollReveal, { passive: true });
+  window.addEventListener("resize", onScrollReveal);
+  checkReveal();
 
   // Safety net: never leave content hidden (e.g. print, odd viewports)
   window.addEventListener("beforeprint", showAll);
