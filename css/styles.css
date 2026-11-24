@@ -591,18 +591,27 @@ button { font: inherit; color: inherit; }
 /* =========================================================
    Testimonials (Figma 1:3817)
    ========================================================= */
-.testimonials__grid { display: grid; grid-template-columns: 750fr 360fr 360fr; gap: 30px; }
+/* Active card is wide (750) and shows the quote image; the others are narrow (360) logo cards.
+   The grid column widths animate when the active card changes. */
+.testimonials__grid { display: grid; grid-template-columns: 750fr 360fr 360fr; gap: 30px; height: 413px; transition: grid-template-columns .6s var(--ease); }
+.testimonials__grid[data-active="1"] { grid-template-columns: 360fr 750fr 360fr; }
+.testimonials__grid[data-active="2"] { grid-template-columns: 360fr 360fr 750fr; }
 .t-card { position: relative; overflow: hidden; border-radius: 20px; background: #222; }
-.t-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
-.t-card:hover img { transform: scale(1.035); }
-/* Quote is baked into the desktop image, so the live copy is screen-reader only there */
+.t-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .45s ease, transform .8s var(--ease); }
+.t-card__img--wide { object-position: left center; opacity: 0; }
+.t-card.is-active .t-card__img--wide { opacity: 1; }
+.t-card.is-active .t-card__img--narrow { opacity: 0; }
+.t-card:hover .t-card__img { transform: scale(1.03); }
+/* Quote is baked into the wide desktop image, so the live copy is screen-reader only there */
 .t-card__quote { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .play-btn--card, .play-btn--case { width: 48px; height: 48px; background: transparent; }
 .play-btn--card svg, .play-btn--case svg { opacity: 0; }
-.play-btn--card { right: 5.3%; top: 66%; }
+.play-btn--card { left: calc(100% - 88px); top: 66%; z-index: 2; opacity: 0; visibility: hidden; transition: opacity .3s ease .25s, transform .25s var(--ease); }
+.t-card.is-active .play-btn--card { opacity: 1; visibility: visible; }
 .play-btn--case { left: 79.3%; top: 85.6%; }
 .play-btn--card:hover, .play-btn--case:hover { transform: scale(1.12); box-shadow: 0 0 0 6px rgba(255, 255, 255, .25); }
-.t-card__hit { position: absolute; inset: 0; border: 0; background: transparent; cursor: pointer; border-radius: inherit; }
+.t-card__hit { position: absolute; inset: 0; z-index: 1; border: 0; background: transparent; cursor: pointer; border-radius: inherit; }
+.t-card.is-active .t-card__hit { cursor: default; }
 .t-card__hit:focus-visible { outline-offset: -4px; outline-color: var(--white); }
 
 /* =========================================================
@@ -633,16 +642,20 @@ button { font: inherit; color: inherit; }
 .cases .section-head { margin-bottom: 50px; }
 .cases__body { display: grid; grid-template-columns: 437fr 1093fr; }
 .case-feature { position: relative; overflow: hidden; border-radius: 6px 0 0 6px; }
-.case-feature img { width: 100%; height: 100%; object-fit: cover; }
+.case-feature img { width: 100%; height: 100%; object-fit: cover; transition: opacity .2s ease; }
+.case-feature img.is-swapping { opacity: 0; }
 .cases__grid { display: grid; grid-template-columns: repeat(5, 1fr); }
 /* Odd column counts keep the checkerboard aligned with the baked tile colours */
 .cases__grid li { aspect-ratio: 1; background: var(--white); }
 .cases__grid li:nth-child(odd) { background: #e8eefd; }
 .cases__grid li:nth-child(5) { border-top-right-radius: 6px; }
 .cases__grid li:nth-child(15) { border-bottom-right-radius: 6px; }
-.cases__grid a { display: grid; place-items: center; width: 100%; height: 100%; padding: 3.7%; }
+.cases__tile { position: relative; display: grid; place-items: center; width: 100%; height: 100%; padding: 3.7%; border: 0; background: transparent; cursor: pointer; }
+.cases__tile::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 2px var(--primary-red); opacity: 0; transition: opacity .25s ease; pointer-events: none; }
+.cases__tile[aria-pressed="true"]::after { opacity: 1; }
+.cases__tile:focus-visible { outline-offset: -4px; }
 .cases__grid img { width: 100%; transition: transform .3s var(--ease), filter .3s var(--ease); }
-.cases__grid a:hover img { transform: scale(1.06); }
+.cases__tile:hover img, .cases__tile[aria-pressed="true"] img { transform: scale(1.06); }
 
 /* =========================================================
    Clutch (Figma 1:4249)
@@ -863,8 +876,6 @@ button { font: inherit; color: inherit; }
   .int-tiles li { position: relative; left: auto; top: auto; width: 76px; height: 76px; border-radius: 18px; }
   .int-tiles .int-tiles__dup { display: none; }
 
-  .testimonials__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-  .t-card--feature { grid-column: 1 / -1; }
 
   .cases__body { grid-template-columns: 1fr; gap: 20px; }
   .case-feature { max-width: 440px; width: 100%; margin-inline: auto; border-radius: 10px; }
@@ -885,6 +896,25 @@ button { font: inherit; color: inherit; }
 
   .site-footer__nav { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
   .newsletter { margin-left: 0; }
+}
+
+@media (max-width: 1199px) {
+  /* Below 1200px the wide quote image would crop: cards stack, logo photo on top and the quote as live text */
+  .testimonials__grid, .testimonials__grid[data-active] { display: flex; flex-direction: column; height: auto; gap: 16px; }
+  .t-card { display: flex; flex-direction: column; background: #1b1d28; }
+  .t-card__img { position: static; height: auto; aspect-ratio: 16 / 9; }
+  .t-card__img--wide { display: none; }
+  .t-card.is-active .t-card__img--narrow { opacity: 1; }
+  .t-card .t-card__quote { position: static; width: auto; height: auto; clip: auto; overflow: visible; padding: 18px 20px 22px; color: var(--white); font: 400 16px/25px var(--font-body); }
+  .t-card__quote footer { margin-top: 10px; font-weight: 600; font-size: 15px; }
+  .t-card__hit { display: none; }
+  .play-btn--card, .t-card.is-active .play-btn--card { left: auto; right: 16px; top: 16px; width: 48px; height: 48px; background: var(--white); color: #111; opacity: 1; visibility: visible; }
+  .play-btn--card svg { opacity: 1; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .testimonials__grid, .testimonials__grid[data-active] { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; }
+  .t-card__img { aspect-ratio: 1 / 1; }
+  .t-card .t-card__quote { font-size: 15px; line-height: 23px; }
 }
 
 /* =========================================================
@@ -924,14 +954,7 @@ button { font: inherit; color: inherit; }
   .int-tiles { gap: 10px; max-width: 360px; }
   .int-tiles li { width: 60px; height: 60px; border-radius: 14px; }
 
-  .testimonials__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-  /* Mobile feature card: text-free photo + live quote */
-  .t-card--feature { display: flex; flex-direction: column; background: #1b1d28; }
-  .t-card--feature img { height: auto; aspect-ratio: 750 / 211; }
-  .t-card--feature .t-card__quote { position: static; width: auto; height: auto; clip: auto; overflow: visible; padding: 20px 20px 24px; color: var(--white); font: 400 16px/25px var(--font-body); }
-  .t-card__quote footer { margin-top: 10px; font-weight: 600; font-size: 15px; }
-  .play-btn--card { right: 16px; top: 16px; width: 48px; height: 48px; background: var(--white); color: #111; }
-  .play-btn--card svg { opacity: 1; }
+
 
   .chip { height: 44px; padding: 10px 22px; font-size: 16px; }
   .marquee { gap: 12px; }

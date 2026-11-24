@@ -39,8 +39,27 @@ with sync_playwright() as p:
     pg.click("#faq-tab-2")
     check("FAQ tab 2 shows its panel", pg.is_visible("#faq-panel-2"))
 
-    # Clutch carousel arrows: 4 badges fit at 1440 -> both disabled
-    check("clutch arrows disabled when nothing to scroll", pg.is_disabled("[data-carousel-prev]") and pg.is_disabled("[data-carousel-next]"))
+    # Clutch carousel: 6 badges, 4 per view -> next enabled, prev disabled at start
+    pg.evaluate("document.querySelector('.clutch').scrollIntoView()"); pg.wait_for_timeout(300)
+    check("clutch prev disabled at start, next enabled", pg.is_disabled("[data-carousel-prev]") and not pg.is_disabled("[data-carousel-next]"))
+    pg.click("[data-carousel-next]"); pg.wait_for_timeout(900)
+    check("clutch next scrolls the badges", pg.evaluate("document.querySelector('.clutch__track').scrollLeft") > 50 and not pg.is_disabled("[data-carousel-prev]"))
+
+    # Testimonials: clicking another card makes it the wide active card
+    pg.evaluate("document.querySelector('.testimonials').scrollIntoView()"); pg.wait_for_timeout(300)
+    pg.click(".t-card:nth-child(3) .t-card__hit"); pg.wait_for_timeout(800)
+    check("testimonial 3 becomes active", pg.evaluate("document.querySelector('[data-testimonials]').dataset.active") == "2" and pg.get_attribute(".t-card:nth-child(3) .t-card__hit", "aria-pressed") == "true")
+    w = pg.evaluate("[...document.querySelectorAll('.t-card')].map(c=>Math.round(c.offsetWidth))")
+    check("active testimonial is the wide one", w[2] > w[0] * 1.8, w)
+    pg.click(".t-card:nth-child(3) .play-btn--card")
+    check("active testimonial play opens its video", pg.inner_text("#video-dialog-title") == "Eravant testimonial")
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(100)
+
+    # Case studies: clicking a logo swaps the large card
+    pg.evaluate("document.querySelector('.cases').scrollIntoView()"); pg.wait_for_timeout(300)
+    pg.click(".cases__tile[data-name='Rebag']"); pg.wait_for_timeout(500)
+    check("case logo swaps featured card", pg.get_attribute(".case-feature img", "src").endswith("casecard-rebag.jpg") and pg.get_attribute(".cases__tile[data-name='Rebag']", "aria-pressed") == "true")
+    check("case play button retitled", pg.get_attribute("[data-case-play]", "data-video-title") == "Rebag case study")
 
     # Video dialog open / Esc / focus return
     pg.click(".play-btn--hero")

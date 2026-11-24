@@ -303,6 +303,76 @@ function $$(sel, root) { return Array.prototype.slice.call((root || document).qu
   });
 })();
 
+/* ---- Testimonials: the active card expands; hover (desktop), focus or click another to switch */
+(function () {
+  "use strict";
+  var grid = document.querySelector("[data-testimonials]");
+  if (!grid) return;
+  var cards = $$(".t-card", grid);
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  function activate(i) {
+    cards.forEach(function (card, k) {
+      var on = k === i;
+      card.classList.toggle("is-active", on);
+      var hit = card.querySelector(".t-card__hit");
+      if (hit) hit.setAttribute("aria-pressed", String(on));
+    });
+    grid.setAttribute("data-active", String(i));
+  }
+
+  cards.forEach(function (card, i) {
+    var hit = card.querySelector(".t-card__hit");
+    if (!hit) return;
+    hit.addEventListener("click", function () { activate(i); });
+    hit.addEventListener("focus", function () { activate(i); });
+    card.addEventListener("mouseenter", function () { if (canHover.matches) activate(i); });
+  });
+  activate(0);
+})();
+
+/* ---- Case studies: hovering, focusing or clicking a client logo shows its story in the large card */
+(function () {
+  "use strict";
+  var root = document.querySelector("[data-cases]");
+  if (!root) return;
+  var img = root.querySelector(".case-feature img");
+  var play = root.querySelector("[data-case-play]");
+  var tiles = $$(".cases__tile", root);
+  if (!img || !tiles.length) return;
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+  var timer;
+
+  // preload cards once the section is near, so swaps are instant
+  var warm = function () { tiles.forEach(function (t) { var i = new Image(); i.src = t.getAttribute("data-card"); }); };
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (e, obs) { if (e[0].isIntersecting) { warm(); obs.disconnect(); } }, { rootMargin: "400px" });
+    io.observe(root);
+  } else { warm(); }
+
+  function show(tile) {
+    var src = tile.getAttribute("data-card");
+    tiles.forEach(function (t) { t.setAttribute("aria-pressed", String(t === tile)); });
+    if (play) {
+      var title = tile.getAttribute("data-name") + " case study";
+      play.setAttribute("data-video-title", title);
+      play.setAttribute("aria-label", "Play video: " + title);
+    }
+    if (img.getAttribute("src") === src) return;
+    window.clearTimeout(timer);
+    var apply = function () { img.src = src; img.alt = tile.getAttribute("data-alt") || ""; img.classList.remove("is-swapping"); };
+    if (REDUCED) { apply(); return; }
+    img.classList.add("is-swapping");
+    timer = window.setTimeout(apply, 160);
+  }
+
+  tiles.forEach(function (tile) {
+    tile.addEventListener("click", function () { show(tile); });
+    tile.addEventListener("focus", function () { show(tile); });
+    tile.addEventListener("mouseenter", function () { if (canHover.matches) show(tile); });
+  });
+})();
+
 /* ---- Video dialog for every play button */
 (function () {
   "use strict";

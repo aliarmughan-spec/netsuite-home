@@ -46,6 +46,8 @@ Every section carries its `data-node-id` for traceability.
 ## Interactions and motion
 - **Tabs** (services, FAQ): WAI-ARIA tabs with arrow/Home/End keys. On services, a red pill slides to the active tab. Panels cross-fade.
 - **Accordions** (solutions, go-live, FAQ): one item open at a time, with animated height and correct `aria-expanded` state. In solutions and go-live, opening an item cross-fades the screenshot or photo to match (content from Figma frames `1:5625`, `1:9388`, `1:9667`, `1:5526`, `1:5558`, `1:5592`).
+- **Testimonials** (Figma `1:3817`, `1:5022`, `1:5032`): the active card expands to the wide layout with its quote; hover, focus or click another card to switch (column widths animate). Below 1200px every card shows a logo photo with its quote as live text.
+- **Case studies** (Figma client cards `1:4613`–`1:5013`): hover, focus or click a client logo to show that client's story in the large card; the play button retitles to match.
 - **Service tabs 2–7** use the Figma frames `1:10306`–`1:11094` (copy, button labels and visuals).
 - **Carousels** (awards, Clutch): CSS scroll-snap. Dots appear and prev/next arrows disable only when there is something to scroll.
 - **Video buttons** (hero, testimonials, case study): open an accessible `<dialog>`. Add `data-video-src="media/file.mp4"` to a button to play a real file. Only same-origin `.mp4`/`.webm` paths are accepted.
@@ -78,13 +80,13 @@ Every section carries its `data-node-id` for traceability.
 3. **Flattened cards.** The testimonial cards and the Bank & Vogue case card are single images in Figma with the text baked in. They're used as images with full alt text. Supply the source photos and logos so the quotes can be live text at every size (mobile already does this for the ADM card).
 4. **Draft copy (marked `data-draft` in the HTML), not in Figma:** FAQ answers 2–5, and the "coming soon" text in FAQ tabs 2–5. These need approved content.
 5. **FAQ tab labels** ("Property Types", "Investment Management", …) look carried over from another product page. They're kept as designed; please confirm.
-6. **Extra Figma frames not built yet.** The page also has a card for each of the 15 case-study logos (probably a hover or click state for the featured card), two more testimonial cards and two more Clutch badges. Add them for the complete interaction.
+6. **Case-study captions.** In Figma, CORE's card caption is identical to Naked Wardrobe's ("NetSuite AFA Standard with NStitch CMT…"). It's built as designed; please confirm the real CORE summary.
 7. **Videos.** No video files were supplied, so play buttons open the dialog with a "not added yet" message.
 8. **Forms.**
    - Set `data-endpoint` on `#contact-form` and `#newsletter-form`.
    - Replace the client-side "4+2" check with server-side verification. A client-side check is not real bot protection.
    - Add a privacy-policy link target.
-9. **Carousels.** Figma shows 3 pages of award badges and arrows on the Clutch row, but only 6 awards and 4 Clutch badges exist. Add more badges and the controls activate automatically.
+9. **Clutch badges.** Figma adds two more badges to the carousel, but they repeat two that are already shown (Top NetSuite Company 2024 and Top Software Developers, Manufacturing). They're built as designed so the arrows work; swap in different badges if you have them. The awards row has only 6 badges, so its dots only appear on mobile.
 10. **Industries.** Figma has a hidden "Manufacturing" detail panel ("Click here to learn more"), which suggests a per-industry detail view. It isn't built. Chips are links (`#` for now).
 11. **Footer.**
     - The third contact row repeats the email next to a location pin; it probably needs an address.

@@ -528,28 +528,43 @@
           <h2 class="section-title" id="testimonials-title">Our Clients Speak for Our Work</h2>
           <p class="section-lead section-lead--wide">From startups to Fortune 500s, our clients choose Folio3 as their go-to NetSuite partner for one reason — we deliver. Hear what they say about their transformation journeys, success stories, and the results that followed.</p>
         </header>
-        <ul class="testimonials__grid" data-reveal data-delay="1">
-          <li class="t-card t-card--feature">
-            <!-- Figma card is a flattened image with the quote baked in; on mobile the photo + live text version is shown -->
-            <picture>
-              <source media="(max-width: 767px)" srcset="assets/img/testimonial-adm-photo.jpg">
-              <img src="assets/img/testimonial-adm.jpg" width="750" height="413" alt="" loading="lazy">
-            </picture>
+        <!-- Figma 1:3817 + 1:5022 / 1:5032: the active card expands to the wide layout with its quote; hover, focus or click another card to switch -->
+        <ul class="testimonials__grid" data-reveal data-delay="1" data-testimonials>
+          <li class="t-card is-active" data-t="adm">
+            <img class="t-card__img t-card__img--narrow" src="assets/img/testimonial-adm-narrow.jpg" width="360" height="413" alt="" loading="lazy">
+            <img class="t-card__img t-card__img--wide" src="assets/img/testimonial-adm.jpg" width="750" height="413" alt="" loading="lazy">
             <blockquote class="t-card__quote">
               <p>Folio3’s expertise and structured approach made our NetSuite implementation seamless, even with complex localization and ERP integration.</p>
               <footer>Michale Thompson, Financial Director, ADM Agriculture</footer>
             </blockquote>
+            <button class="t-card__hit" type="button" aria-label="Show ADM Agriculture testimonial" aria-pressed="true"></button>
             <button class="play-btn play-btn--card" type="button" data-video data-video-title="ADM Agriculture testimonial" aria-label="Play video: ADM Agriculture testimonial">
               <svg aria-hidden="true"><use href="#i-play"/></svg>
             </button>
           </li>
-          <li class="t-card">
-            <img src="assets/img/testimonial-naked-wardrobe.jpg" width="360" height="413" alt="Naked Wardrobe" loading="lazy">
-            <button class="t-card__hit" type="button" data-video data-video-title="Naked Wardrobe testimonial" aria-label="Play video: Naked Wardrobe testimonial"></button>
+          <li class="t-card" data-t="naked-wardrobe">
+            <img class="t-card__img t-card__img--narrow" src="assets/img/testimonial-naked-wardrobe.jpg" width="360" height="413" alt="" loading="lazy">
+            <img class="t-card__img t-card__img--wide" src="assets/img/testimonial-naked-wardrobe-wide.jpg" width="750" height="413" alt="" loading="lazy">
+            <blockquote class="t-card__quote">
+              <p>Folio3 team went beyond their duties to resolve our critical issue during the weekend and ensured 400 delayed orders were fixed and ready to ship by Monday morning.</p>
+              <footer>Kamelia Kaviani, Chief Financial Officer, Naked Wardrobe</footer>
+            </blockquote>
+            <button class="t-card__hit" type="button" aria-label="Show Naked Wardrobe testimonial" aria-pressed="false"></button>
+            <button class="play-btn play-btn--card" type="button" data-video data-video-title="Naked Wardrobe testimonial" aria-label="Play video: Naked Wardrobe testimonial">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+            </button>
           </li>
-          <li class="t-card">
-            <img src="assets/img/testimonial-eravant.jpg" width="360" height="413" alt="Eravant" loading="lazy">
-            <button class="t-card__hit" type="button" data-video data-video-title="Eravant testimonial" aria-label="Play video: Eravant testimonial"></button>
+          <li class="t-card" data-t="eravant">
+            <img class="t-card__img t-card__img--narrow" src="assets/img/testimonial-eravant.jpg" width="360" height="413" alt="" loading="lazy">
+            <img class="t-card__img t-card__img--wide" src="assets/img/testimonial-eravant-wide.jpg" width="750" height="413" alt="" loading="lazy">
+            <blockquote class="t-card__quote">
+              <p>We are really impressed by Folio3's problem-solving skills and amazing web tools that went above and beyond, they're our go-to choice for any website needs.</p>
+              <footer>Nina Kang, Continuous Improvement Manager, Eravant</footer>
+            </blockquote>
+            <button class="t-card__hit" type="button" aria-label="Show Eravant testimonial" aria-pressed="false"></button>
+            <button class="play-btn play-btn--card" type="button" data-video data-video-title="Eravant testimonial" aria-label="Play video: Eravant testimonial">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+            </button>
           </li>
         </ul>
         <div class="section-cta" data-reveal><a class="btn btn--primary btn--square" href="#">View all testimonials</a></div>
@@ -601,29 +616,30 @@
         <header class="section-head" data-reveal>
           <h2 class="section-title" id="cases-title">Stories of Growth, Scale, and Success — with NetSuite</h2>
         </header>
-        <div class="cases__body" data-reveal data-delay="1">
-          <div class="case-feature">
+        <!-- Figma 1:3921 + client cards 1:4613–1:5013: hover, focus or click a logo to show its story in the large card -->
+        <div class="cases__body" data-reveal data-delay="1" data-cases>
+          <div class="case-feature" aria-live="polite">
             <img src="assets/img/case-bank-vogue.jpg" width="438" height="656" alt="Bank &amp; Vogue: consolidated multiple systems into NetSuite AFA Premium for streamlined operations." loading="lazy">
-            <button class="play-btn play-btn--case" type="button" data-video data-video-title="Bank &amp; Vogue case study" aria-label="Play video: Bank &amp; Vogue case study">
+            <button class="play-btn play-btn--case" type="button" data-video data-video-title="Bank &amp; Vogue case study" aria-label="Play video: Bank &amp; Vogue case study" data-case-play>
               <svg aria-hidden="true"><use href="#i-play"/></svg>
             </button>
           </div>
-          <ul class="cases__grid" aria-label="Client case studies">
-            <li><a href="#"><img src="assets/img/case-blackstrap.png" width="203" height="203" alt="BlackStrap" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-midwest-textile.png" width="203" height="203" alt="Mid-West Textile LLC" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-ingenius-prep.png" width="203" height="203" alt="InGenius Prep" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-oneutilitybill.png" width="203" height="203" alt="oneutilitybill.co" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-ready-computing.png" width="203" height="203" alt="Ready Computing" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-united-california-glass.png" width="203" height="203" alt="United California Glass &amp; Door" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-cooperative-computing.png" width="203" height="203" alt="Cooperative Computing" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-frankston-packaging.png" width="203" height="203" alt="Frankston Packaging" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-biomason.png" width="203" height="203" alt="Biomason" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-naked-wardrobe.png" width="203" height="203" alt="Naked Wardrobe" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-core.png" width="203" height="203" alt="CORE" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-gro-well.png" width="203" height="203" alt="Gro-Well Brands" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-rebag.png" width="203" height="203" alt="Rebag" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-crp.png" width="203" height="203" alt="CRP" loading="lazy"></a></li>
-            <li><a href="#"><img src="assets/img/case-team-litzen.png" width="203" height="203" alt="Team Litzen" loading="lazy"></a></li>
+          <ul class="cases__grid" aria-label="Choose a client case study">
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-blackstrap.jpg" data-name="BlackStrap" data-alt="BlackStrap: Automated inventory and work orders with NetSuite AFA Standard, reduced manual processes by 40%."><img src="assets/img/case-blackstrap.png" width="203" height="203" alt="BlackStrap" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-midwest-textile.jpg" data-name="Mid-West Textile LLC" data-alt="Mid-West Textile LLC: Transitioned from Sage 100 to NetSuite Manufacturing Standard to scale operations from $15M to $30M+."><img src="assets/img/case-midwest-textile.png" width="203" height="203" alt="Mid-West Textile LLC" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-ingenius-prep.jpg" data-name="InGenius Prep" data-alt="InGenius Prep: Implemented NetSuite ERP with HubSpot integration to streamline financial reporting and procurement processes."><img src="assets/img/case-ingenius-prep.png" width="203" height="203" alt="InGenius Prep" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-oneutilitybill.jpg" data-name="oneutilitybill.co" data-alt="oneutilitybill.co: Implemented NetSuite Financials First to streamline financial operations and improve reporting accuracy."><img src="assets/img/case-oneutilitybill.png" width="203" height="203" alt="oneutilitybill.co" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-ready-computing.jpg" data-name="Ready Computing" data-alt="Ready Computing: Implemented NetSuite Services Standard to streamline core financial operations and revenue management processes."><img src="assets/img/case-ready-computing.png" width="203" height="203" alt="Ready Computing" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-united-california-glass.jpg" data-name="United California Glass &amp; Door" data-alt="United California Glass &amp; Door: Migrated from QuickBooks to NetSuite Services Standard, unified 14 subsidiaries for faster consolidation."><img src="assets/img/case-united-california-glass.png" width="203" height="203" alt="United California Glass &amp; Door" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-cooperative-computing.jpg" data-name="Cooperative Computing" data-alt="Cooperative Computing: Migrated from multiple disconnected systems to NetSuite Services Standard for unified financial and project management."><img src="assets/img/case-cooperative-computing.png" width="203" height="203" alt="Cooperative Computing" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-frankston-packaging.jpg" data-name="Frankston Packaging" data-alt="Frankston Packaging: Deployed NetSuite Financials First with legacy system integration for seamless transition across four subsidiaries."><img src="assets/img/case-frankston-packaging.png" width="203" height="203" alt="Frankston Packaging" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-biomason.jpg" data-name="Biomason" data-alt="Biomason: Implemented NetSuite Services Standard with DCAA SuiteApp for full compliance with US federal government contract regulations."><img src="assets/img/case-biomason.png" width="203" height="203" alt="Biomason" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-naked-wardrobe.jpg" data-name="Naked Wardrobe" data-alt="Naked Wardrobe: Implemented NetSuite AFA Standard with NStitch CMT solution for complete visibility across apparel manufacturing stages."><img src="assets/img/case-naked-wardrobe.png" width="203" height="203" alt="Naked Wardrobe" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-core.jpg" data-name="CORE" data-alt="CORE: Implemented NetSuite AFA Standard with NStitch CMT solution for complete visibility across apparel manufacturing stages."><img src="assets/img/case-core.png" width="203" height="203" alt="CORE" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-gro-well.jpg" data-name="Gro-Well Brands" data-alt="Gro-Well Brands: Implemented NetSuite Manufacturing Premium to automate financial reporting and gain real-time inventory visibility."><img src="assets/img/case-gro-well.png" width="203" height="203" alt="Gro-Well Brands" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-rebag.jpg" data-name="Rebag" data-alt="Rebag: Implemented NetSuite AFA Standard with Amazon Redshift integration for unified financial and inventory reporting."><img src="assets/img/case-rebag.png" width="203" height="203" alt="Rebag" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-crp.jpg" data-name="CRP" data-alt="CRP: Implemented NetSuite with Magento integration to systematize customized product processes and warehousing operations."><img src="assets/img/case-crp.png" width="203" height="203" alt="CRP" loading="lazy"></button></li>
+            <li><button class="cases__tile" type="button" aria-pressed="false" data-card="assets/img/casecard-team-litzen.jpg" data-name="Team Litzen" data-alt="Team Litzen: Implemented NetSuite ERP with SuiteCommerce to unify retail, eCommerce, and POS operations with custom artwork management."><img src="assets/img/case-team-litzen.png" width="203" height="203" alt="Team Litzen" loading="lazy"></button></li>
           </ul>
         </div>
         <div class="section-cta" data-reveal><a class="btn btn--primary btn--square" href="#">View all Case studies</a></div>
@@ -647,6 +663,8 @@
             <li><img src="assets/img/clutch-netsuite.png" width="206" height="220" alt="Clutch Top NetSuite Company 2024" loading="lazy"></li>
             <li><img src="assets/img/clutch-it-services.png" width="206" height="220" alt="Clutch Top IT Services Company, Automotive, San Francisco" loading="lazy"></li>
             <li><img src="assets/img/clutch-software-developers.png" width="206" height="220" alt="Clutch Top Software Developers, Manufacturing, San Francisco" loading="lazy"></li>
+            <li><img src="assets/img/clutch-netsuite-2.png" width="200" height="216" alt="Clutch Top NetSuite Company 2024" loading="lazy"></li>
+            <li><img src="assets/img/clutch-software-developers-2.png" width="200" height="216" alt="Clutch Top Software Developers, Manufacturing, San Francisco" loading="lazy"></li>
           </ul>
           <div class="carousel__arrows">
             <button class="arrow-btn" type="button" data-carousel-prev aria-label="Previous badges"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
