@@ -45,7 +45,8 @@ Every section carries its `data-node-id` for traceability.
 
 ## Interactions and motion
 - **Tabs** (services, FAQ): WAI-ARIA tabs with arrow/Home/End keys. On services, a red pill slides to the active tab. Panels cross-fade.
-- **Accordions** (solutions, go-live, FAQ): one item open at a time, with animated height and correct `aria-expanded` state.
+- **Accordions** (solutions, go-live, FAQ): one item open at a time, with animated height and correct `aria-expanded` state. In solutions and go-live, opening an item cross-fades the screenshot or photo to match (content from Figma frames `1:5625`, `1:9388`, `1:9667`, `1:5526`, `1:5558`, `1:5592`).
+- **Service tabs 2–7** use the Figma frames `1:10306`–`1:11094` (copy, button labels and visuals).
 - **Carousels** (awards, Clutch): CSS scroll-snap. Dots appear and prev/next arrows disable only when there is something to scroll.
 - **Video buttons** (hero, testimonials, case study): open an accessible `<dialog>`. Add `data-video-src="media/file.mp4"` to a button to play a real file. Only same-origin `.mp4`/`.webm` paths are accepted.
 - **Forms**: client-side validation with inline errors, `aria-invalid`, and focus on the first error. Nothing is sent until you configure an endpoint (see review list).
@@ -75,14 +76,9 @@ Every section carries its `data-node-id` for traceability.
 1. **Nexus AI placement.** The section isn't in the new Figma frame. It's kept after the client logos (where it sat before). Confirm placement with design, or remove it.
 2. **Image quality.** The Figma export limit is 1×, so images are 1× crops of the Figma renders. Re-export at 2× (logos and badges as SVG) before launch.
 3. **Flattened cards.** The testimonial cards and the Bank & Vogue case card are single images in Figma with the text baked in. They're used as images with full alt text. Supply the source photos and logos so the quotes can be live text at every size (mobile already does this for the ADM card).
-4. **Draft copy (marked `data-draft` in the HTML), not in Figma:**
-   - service tabs 2–7;
-   - solution accordion items 2–4;
-   - FAQ answers 2–5;
-   - "coming soon" text for go-live items 2–4 and FAQ tabs 2–5.
-   All of these need approved content.
+4. **Draft copy (marked `data-draft` in the HTML), not in Figma:** FAQ answers 2–5, and the "coming soon" text in FAQ tabs 2–5. These need approved content.
 5. **FAQ tab labels** ("Property Types", "Investment Management", …) look carried over from another product page. They're kept as designed; please confirm.
-6. **Visuals for the other services and solutions.** Service tabs 2–7 reuse the implementation dashboard, and all solution items show the NStitch screen. Supply per-tab and per-product visuals.
+6. **Extra Figma frames not built yet.** The page also has a card for each of the 15 case-study logos (probably a hover or click state for the featured card), two more testimonial cards and two more Clutch badges. Add them for the complete interaction.
 7. **Videos.** No video files were supplied, so play buttons open the dialog with a "not added yet" message.
 8. **Forms.**
    - Set `data-endpoint` on `#contact-form` and `#newsletter-form`.
