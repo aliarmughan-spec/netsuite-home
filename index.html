@@ -7,7 +7,7 @@
   <meta name="description" content="Enterprise-grade NetSuite ERP consulting, implementation, customization, integration and support from Folio3's certified NetSuite experts.">
   <meta name="robots" content="noindex, nofollow"><!-- preview build: remove before launch -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script'; upgrade-insecure-requests">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23ec1515'/%3E%3C/svg%3E">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,6 +16,48 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+
+  <!-- Icon sprite: simple stroke icons redrawn to stand in for the Font Awesome Pro glyphs used in Figma -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M4 8h4a2.5 2.5 0 1 1 5 0h4v4a2.5 2.5 0 1 1 0 5v3h-4a2.5 2.5 0 1 0-5 0H4v-4a2.5 2.5 0 1 0 0-5z"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10.5 21v-3h3v3"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M10 4l1.6 4.4L16 10l-4.4 1.6L10 16l-1.6-4.4L4 10l4.4-1.6zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8zM18 3l.6 1.4L20 5l-1.4.6L18 7l-.6-1.4L16 5l1.4-.6z"/></symbol>
+    <symbol id="i-seedling" viewBox="0 0 24 24"><path d="M12 21v-8M12 13c0-4-3-7-8-7 0 4 3 7 8 7zM12 11c0-3.5 2.6-6 7-6 0 3.5-2.6 6-7 6z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5l1.5-2 4 1.5V19a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2.5 7.5V18h2.6v-7.5zm1.3-4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 10.5V18h2.6v-4c0-1.1.7-1.7 1.6-1.7s1.3.6 1.3 1.7v4H19v-4.6c0-2.2-1.2-3.1-2.8-3.1-1.2 0-2 .6-2.5 1.2v-1z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-1.6 19.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 12 2z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4h4.5l4 5.6L17.4 4H20l-6.3 7.3L20.5 20H16l-4.4-6.1L6.3 20H3.7l6.7-7.6z" fill="currentColor" stroke="none"/></symbol>
+    <!-- industries -->
+    <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8 3l-5 3 2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0z"/></symbol>
+    <symbol id="i-industry" viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V4h4v17zM3 21h18"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11M17 21V3c-2.5 1-4 4-4 8h4"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.8-8-10.4A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 8 2.6C20 15.2 12 20 12 20z"/><path d="M4.5 12h4l1.5-2.5 2 4 1.5-1.5h6"/></symbol>
+    <symbol id="i-dna" viewBox="0 0 24 24"><path d="M7 3c0 6 10 6 10 12s-10 0-10 6M17 3c0 6-10 6-10 12M8 7h8M8 17h8"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M3 16v-4l2-5h14l2 5v4zM3 12h18"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5M22 9v6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6zM12 3v18"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14 4c3 0 6 0 6 0s0 3 0 6l-7 7-6-6zM7 11l-3 1 2 2M13 17l-1 3-2-2M6 18l-2 2"/><circle cx="15.5" cy="8.5" r="1.5"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 12h18"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h1M12 11h1M16 11v6M8 14h1M12 14h1M8 17h1M12 17h1"/></symbol>
+    <symbol id="i-hands" viewBox="0 0 24 24"><path d="M12 11s-3-1.9-3-4a2 2 0 0 1 3-1.6A2 2 0 0 1 15 7c0 2.1-3 4-3 4zM2 15h4l5 2h4a1.5 1.5 0 0 0 0-3h-3M6 20l3 1h6l6-4-1.5-1.5-4.5 2.5"/></symbol>
+    <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M4 20L16 8M8 12c-2-2-2-4 0-6 2 2 2 4 0 6zM12 8c-2-2-2-4 0-6 2 2 2 4 0 6zM12 16c-2 2-4 2-6 0 2-2 4-2 6 0zM16 12c-2 2-4 2-6 0 2-2 4-2 6 0zM16 8l4-4"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5zM5 9v9M10 9v9M14 9v9M19 9v9M3 21h18M3 18h18"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M4 17a8 8 0 0 1 16 0zM2 17h20M12 9V7M10 7h4"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9a2.7 2.7 0 0 1-5.3 0A2.7 2.7 0 0 1 9.3 9 2.7 2.7 0 0 1 4 9zM5 11v9h14v-9M10 20v-5h4v5"/></symbol>
+  </svg>
 
   <!-- ============ Section 1: Site header (Figma 13042:13555) ============ -->
   <header class="site-header" id="site-header" data-node-id="13042:13555">
@@ -51,43 +93,42 @@
     </div>
   </header>
 
+
   <main id="main">
-    <!-- ============ Section 2: Hero (Figma 13042:13617) ============ -->
-    <section class="hero" aria-labelledby="hero-title" data-node-id="13042:13617">
+    <!-- ============ Hero (Figma 1:1187) ============ -->
+    <section class="hero" aria-labelledby="hero-title" data-node-id="1:1187">
       <div class="container hero__inner">
         <div class="hero__copy" data-reveal>
           <h1 class="hero__title" id="hero-title">
-            <span class="hero__title-light">Enterprise-Grade NetSuite ERP Solutions Delivered by </span><span class="hero__title-accent">Certified NetSuite Experts</span>
+            <span class="hero__title-light">Leader’s favourite </span><span class="hero__title-accent">Award-Winning</span><br class="hero__br"><span class="hero__title-light"> NetSuite alliance partner</span>
           </h1>
-          <p class="hero__lead">Empowering organizations with AI-powered NetSuite solutions that drive long-term success. As a recipient of multiple NetSuite Spotlight Awards, Folio3’s certified NetSuite experts deliver excellence through end-to-end services that include ERP consulting, implementation, customization, integration, and ongoing support.</p>
+          <p class="hero__lead">Helping businesses scale with next-gen <strong>AI-Powered</strong> NetSuite services. Get expert NetSuite implementation, tailored customization, seamless integration, and dedicated support after go-live.</p>
         </div>
 
         <div class="hero__actions" data-reveal data-delay="1">
-          <a class="btn btn--primary" href="#contact">
-            Talk to Experts
-            <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 11L11 3M11 3H4.5M11 3v6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a class="btn btn--outline" href="#services">Get NetSuite Services</a>
+          <a class="btn btn--primary" href="#contact">Request NetSuite services</a>
+          <a class="btn btn--outline" href="#contact">Schedule a consultation</a>
         </div>
 
-        <div class="hero__experts" data-reveal data-delay="2">
-          <div class="hero__avatars">
-            <img src="assets/img/avatars.png" width="276" height="84" alt="Portraits of Folio3 certified NetSuite consultants">
-            <span class="hero__avatar-count" data-count="150">+150</span>
+        <div class="hero__media" data-node-id="1:1209" data-reveal data-delay="2">
+          <div class="hero__screen">
+            <img src="assets/img/hero-dashboard.webp" width="1080" height="612" alt="NetSuite home dashboard showing KPIs, a weekly sales pipeline chart and a top-customers breakdown" fetchpriority="high">
+            <button class="play-btn play-btn--hero" type="button" data-video data-video-title="Folio3 NetSuite overview" aria-label="Play video: Folio3 NetSuite overview">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+            </button>
           </div>
-          <p class="hero__experts-label">Certified Experts</p>
         </div>
-
-        <ul class="partner-logos" aria-label="Technology partners" data-reveal data-delay="3">
-          <li class="partner-logos__item"><img src="assets/img/partner-netsuite.png" width="144" height="40" alt="Oracle NetSuite"></li>
-          <li class="partner-logos__item"><img src="assets/img/partner-suitecommerce.png" width="160" height="24" alt="SuiteCommerce"></li>
-          <li class="partner-logos__item"><img src="assets/img/partner-boomi.png" width="110" height="32" alt="Boomi"></li>
-          <li class="partner-logos__item"><img src="assets/img/partner-mulesoft.png" width="136" height="40" alt="MuleSoft"></li>
-          <li class="partner-logos__item"><img src="assets/img/partner-salesforce.png" width="66" height="66" alt="Salesforce"></li>
-        </ul>
       </div>
+    </section>
+
+    <!-- ============ Client logos (Figma 1:1756) ============ -->
+    <section class="clients" aria-label="Clients" data-node-id="1:1756">
+      <ul class="container clients__list" data-reveal>
+        <li><img src="assets/img/client-gst.png" width="284" height="59" alt="Global Syn-Turf"></li>
+        <li><img src="assets/img/client-flowater.png" width="234" height="52" alt="Flowater"></li>
+        <li><img src="assets/img/client-prestwick.png" width="234" height="57" alt="Prestwick Golf Group"></li>
+        <li><img src="assets/img/client-boobie.png" width="234" height="68" alt="Boobie"></li>
+      </ul>
     </section>
 
     <!-- ============ Section 3: Nexus AI agents (Figma 13042:13664 "Food ERP") ============ -->
@@ -152,7 +193,656 @@
         </a>
       </div>
     </section>
+
+    <!-- ============ Services tabs (Figma 1:1893) ============ -->
+    <section class="section section--grey services" id="services" aria-labelledby="services-title" data-node-id="1:1893">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="services-title">Your one-stop shop for all things NetSuite</h2>
+          <p class="section-lead">We take pride in serving thousands of customers for their unique NetSuite implementation, customization, and integration needs.</p>
+        </header>
+
+        <div class="tabs" data-tabs>
+          <div class="services__tablist-wrap" data-reveal data-delay="1">
+            <div class="services__tablist" role="tablist" aria-label="NetSuite services">
+              <button class="services__tab" role="tab" id="svc-tab-1" aria-controls="svc-panel-1" aria-selected="true">NetSuite Implementation</button>
+              <button class="services__tab" role="tab" id="svc-tab-2" aria-controls="svc-panel-2" aria-selected="false" tabindex="-1">NetSuite Module</button>
+              <button class="services__tab" role="tab" id="svc-tab-3" aria-controls="svc-panel-3" aria-selected="false" tabindex="-1">NetSuite Migration</button>
+              <button class="services__tab" role="tab" id="svc-tab-4" aria-controls="svc-panel-4" aria-selected="false" tabindex="-1">NetSuite Integration</button>
+              <button class="services__tab" role="tab" id="svc-tab-5" aria-controls="svc-panel-5" aria-selected="false" tabindex="-1">NetSuite Optimization</button>
+              <button class="services__tab" role="tab" id="svc-tab-6" aria-controls="svc-panel-6" aria-selected="false" tabindex="-1">NetSuite Support</button>
+              <button class="services__tab" role="tab" id="svc-tab-7" aria-controls="svc-panel-7" aria-selected="false" tabindex="-1">SuiteCommerce</button>
+            </div>
+          </div>
+
+          <!-- Panel 1 is the Figma design. Panels 2–7 are DRAFT copy (not in Figma) – replace with approved content. -->
+          <div class="services__panel" role="tabpanel" id="svc-panel-1" aria-labelledby="svc-tab-1" tabindex="0">
+            <div class="services__copy">
+              <h3 class="services__title">Launch with Precision. Scale with Confidence.</h3>
+              <p class="services__text">Our certified NetSuite experts ensure a flawless transition to NetSuite, configured for your business needs from day one.</p>
+              <ul class="check-list">
+                <li>Streamlined setup for finance, CRM, and operations</li>
+                <li>Proven, agile implementation framework</li>
+                <li>End-to-end implementation — from Discovery to go-live</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#contact">Explore our Implementation Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="NetSuite dashboard with reminders, quick-access shortcuts, KPI sparklines and an income-by-period bar chart" loading="lazy"></div>
+          </div>
+
+          <div class="services__panel" role="tabpanel" id="svc-panel-2" aria-labelledby="svc-tab-2" tabindex="0" hidden data-draft>
+            <div class="services__copy">
+              <h3 class="services__title">The Right Modules. Configured Your Way.</h3>
+              <p class="services__text">Extend NetSuite with the modules your teams actually need, set up to match how your business runs.</p>
+              <ul class="check-list">
+                <li>Module selection based on your processes and growth plans</li>
+                <li>Configuration, workflows and role-based dashboards</li>
+                <li>Training so every team adopts new functionality quickly</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#contact">Explore our Module Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="" loading="lazy"></div>
+          </div>
+
+          <div class="services__panel" role="tabpanel" id="svc-panel-3" aria-labelledby="svc-tab-3" tabindex="0" hidden data-draft>
+            <div class="services__copy">
+              <h3 class="services__title">Move to NetSuite Without Missing a Beat.</h3>
+              <p class="services__text">We migrate your data, history and processes from legacy systems with a plan built around business continuity.</p>
+              <ul class="check-list">
+                <li>Data mapping, cleansing and validation</li>
+                <li>Phased cut-over that protects day-to-day operations</li>
+                <li>Reconciliation and sign-off before go-live</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#contact">Explore our Migration Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="" loading="lazy"></div>
+          </div>
+
+          <div class="services__panel" role="tabpanel" id="svc-panel-4" aria-labelledby="svc-tab-4" tabindex="0" hidden data-draft>
+            <div class="services__copy">
+              <h3 class="services__title">Connect NetSuite to Everything You Use.</h3>
+              <p class="services__text">Keep data flowing between NetSuite and your eCommerce, CRM, payments and logistics platforms.</p>
+              <ul class="check-list">
+                <li>50+ prebuilt connectors for popular platforms</li>
+                <li>Custom integrations for in-house and niche systems</li>
+                <li>Monitoring and error handling built in</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#integrations">Explore our Integration Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="" loading="lazy"></div>
+          </div>
+
+          <div class="services__panel" role="tabpanel" id="svc-panel-5" aria-labelledby="svc-tab-5" tabindex="0" hidden data-draft>
+            <div class="services__copy">
+              <h3 class="services__title">Get More From the NetSuite You Already Have.</h3>
+              <p class="services__text">We review your account, remove friction and tune NetSuite so it keeps pace with your business.</p>
+              <ul class="check-list">
+                <li>Health check of configuration, scripts and workflows</li>
+                <li>Performance tuning and process automation</li>
+                <li>Reporting and dashboards your leadership will use</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#contact">Explore our Optimization Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="" loading="lazy"></div>
+          </div>
+
+          <div class="services__panel" role="tabpanel" id="svc-panel-6" aria-labelledby="svc-tab-6" tabindex="0" hidden data-draft>
+            <div class="services__copy">
+              <h3 class="services__title">Dedicated Support After Go-Live.</h3>
+              <p class="services__text">A certified team on call to keep NetSuite running smoothly and evolving with your needs.</p>
+              <ul class="check-list">
+                <li>Flexible support plans and response times</li>
+                <li>Release management and regression testing</li>
+                <li>Ongoing enhancements as your business grows</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#contact">Explore our Support Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="" loading="lazy"></div>
+          </div>
+
+          <div class="services__panel" role="tabpanel" id="svc-panel-7" aria-labelledby="svc-tab-7" tabindex="0" hidden data-draft>
+            <div class="services__copy">
+              <h3 class="services__title">Commerce That Runs on NetSuite.</h3>
+              <p class="services__text">SuiteCommerce storefronts that share one source of truth with your inventory, orders and customers.</p>
+              <ul class="check-list">
+                <li>B2B and B2C storefront design and development</li>
+                <li>Migration from other eCommerce platforms</li>
+                <li>Performance, SEO and conversion improvements</li>
+              </ul>
+              <a class="btn btn--primary btn--square" href="#contact">Explore our SuiteCommerce Services</a>
+            </div>
+            <div class="services__media"><img src="assets/img/service-implementation.webp" width="760" height="472" alt="" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Stats (Figma 1:2289) ============ -->
+    <section class="section stats" aria-labelledby="stats-title" data-node-id="1:2289">
+      <div class="container stats__inner">
+        <div class="stats__copy" data-reveal>
+          <h2 class="section-title" id="stats-title">Recognized Globally. Trusted Locally. <br class="br-desktop">Proven Everywhere</h2>
+          <p class="stats__text">Folio3 is your partner behind the systems that support your next stage of growth. When the stakes are high, you need a team that understands the business behind the technology, the numbers, the workflows, and the goals that matter.</p>
+        </div>
+        <dl class="stats__grid" data-reveal data-delay="1">
+          <div class="stat"><dt>Projects Delivered</dt><dd data-count="1000" data-suffix="+">1000+</dd></div>
+          <div class="stat"><dt>Years of Experience</dt><dd data-count="18" data-suffix="+">18+</dd></div>
+          <div class="stat"><dt>Prebuilt Integrations</dt><dd data-count="50" data-suffix="+">50+</dd></div>
+          <div class="stat"><dt>Netsuite Resources</dt><dd data-count="300" data-suffix="+">300+</dd></div>
+          <div class="stat"><dt>Successful Go Live Rate</dt><dd data-count="98" data-suffix="%">98%</dd></div>
+          <div class="stat"><dt>Consulting Hours</dt><dd data-count="1" data-suffix=" Million+">1 Million+</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ Awards (Figma 1:2329) ============ -->
+    <section class="section section--grey awards" aria-labelledby="awards-title" data-node-id="1:2329">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="awards-title">Awards reflect results, and we keep earning BOTH</h2>
+          <p class="section-lead section-lead--wide">Our partnership with NetSuite spans nearly two decades, and along the way, we’ve been honored with multiple awards for innovation and delivering excellence in a wide range of industries.</p>
+        </header>
+        <div class="awards__body">
+          <figure class="awards__featured" data-reveal data-delay="1">
+            <img src="assets/img/award-partner-of-year.png" width="502" height="306" alt="Oracle NetSuite Partner of the Year 2025 – Alliance Partner of the Year, Middle East" loading="lazy">
+          </figure>
+          <div class="carousel awards__carousel" data-carousel data-reveal data-delay="2">
+            <ul class="carousel__track awards__grid" aria-label="NetSuite Spotlight awards">
+              <li><img src="assets/img/award-industry-sporting-goods-2025.png" width="232" height="130" alt="Industry Spotlight Winner 2025 – Sporting Goods" loading="lazy"></li>
+              <li><img src="assets/img/award-apparel-2024.png" width="232" height="130" alt="Alliance Partner Spotlight Winner 2024 – Apparel, Footwear and Accessories" loading="lazy"></li>
+              <li><img src="assets/img/award-software-2024.png" width="232" height="130" alt="Alliance Partner Spotlight Winner 2024 – Software & IT Services" loading="lazy"></li>
+              <li><img src="assets/img/award-building-materials-2024.png" width="232" height="130" alt="Alliance Partner Spotlight Winner 2024 – Building Materials" loading="lazy"></li>
+              <li><img src="assets/img/award-education-2024.png" width="232" height="130" alt="Alliance Partner Spotlight Winner 2024 – Education" loading="lazy"></li>
+              <li><img src="assets/img/award-financial-services-2023.png" width="232" height="130" alt="Alliance Partner Spotlight Winner 2023 – Financial Services" loading="lazy"></li>
+            </ul>
+            <div class="carousel__dots" data-carousel-dots aria-label="Choose awards page"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Niche solutions (Figma 1:2989) ============ -->
+    <section class="section solutions" aria-labelledby="solutions-title" data-node-id="1:2989">
+      <div class="container solutions__inner">
+        <div class="solutions__copy" data-reveal>
+          <h2 class="section-title section-title--left" id="solutions-title">Purpose-Built NetSuite Solutions for niche industries— by Folio3.</h2>
+          <p class="solutions__text">Innovation is in our DNA. That’s why we've built NetSuite solutions that do more than the out-of-the-box ERP functionality. We make NetSuite work smarter so your team can work simpler.</p>
+
+          <!-- Accordion: only NStitch body copy is in Figma; the other three are DRAFT -->
+          <div class="product-acc" data-accordion="single">
+            <div class="product-acc__item is-open">
+              <h3 class="product-acc__heading">
+                <button class="product-acc__trigger" type="button" aria-expanded="true" aria-controls="sol-1" id="sol-1-btn">
+                  <svg class="product-acc__icon" aria-hidden="true"><use href="#i-puzzle"/></svg>
+                  <span>NStitch</span>
+                  <svg class="product-acc__chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+                </button>
+              </h3>
+              <div class="acc-panel" id="sol-1" role="region" aria-labelledby="sol-1-btn">
+                <div class="acc-panel__inner product-acc__body">
+                  <p><strong>Cut-Make-Trim solution</strong><br>An apparel production tracking solution that gives manufacturers complete cost visibility and control over every stage of production.</p>
+                  <a class="link-arrow link-arrow--yellow" href="#contact">Get Started <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-acc__item" data-draft>
+              <h3 class="product-acc__heading">
+                <button class="product-acc__trigger" type="button" aria-expanded="false" aria-controls="sol-2" id="sol-2-btn">
+                  <svg class="product-acc__icon" aria-hidden="true"><use href="#i-building"/></svg>
+                  <span>Propertese</span>
+                  <svg class="product-acc__chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+                </button>
+              </h3>
+              <div class="acc-panel" id="sol-2" role="region" aria-labelledby="sol-2-btn" hidden>
+                <div class="acc-panel__inner product-acc__body">
+                  <p><strong>Property management on NetSuite</strong><br>Manage leases, tenants and property financials in one place, connected directly to your NetSuite general ledger.</p>
+                  <a class="link-arrow link-arrow--yellow" href="#contact">Get Started <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-acc__item" data-draft>
+              <h3 class="product-acc__heading">
+                <button class="product-acc__trigger" type="button" aria-expanded="false" aria-controls="sol-3" id="sol-3-btn">
+                  <svg class="product-acc__icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
+                  <span>NetSuite AI-Assistant</span>
+                  <svg class="product-acc__chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+                </button>
+              </h3>
+              <div class="acc-panel" id="sol-3" role="region" aria-labelledby="sol-3-btn" hidden>
+                <div class="acc-panel__inner product-acc__body">
+                  <p><strong>Ask NetSuite in plain language</strong><br>An AI assistant that finds records, answers questions about your data and speeds up everyday NetSuite tasks.</p>
+                  <a class="link-arrow link-arrow--yellow" href="#contact">Get Started <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-acc__item" data-draft>
+              <h3 class="product-acc__heading">
+                <button class="product-acc__trigger" type="button" aria-expanded="false" aria-controls="sol-4" id="sol-4-btn">
+                  <svg class="product-acc__icon" aria-hidden="true"><use href="#i-seedling"/></svg>
+                  <span>AgriERP</span>
+                  <svg class="product-acc__chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+                </button>
+              </h3>
+              <div class="acc-panel" id="sol-4" role="region" aria-labelledby="sol-4-btn" hidden>
+                <div class="acc-panel__inner product-acc__body">
+                  <p><strong>ERP built for agriculture</strong><br>Track farms, crops, harvests and agribusiness operations end to end, on top of NetSuite.</p>
+                  <a class="link-arrow link-arrow--yellow" href="#contact">Get Started <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="solutions__media" data-reveal data-delay="1">
+          <img src="assets/img/solution-nstitch.webp" width="750" height="774" alt="NStitch production dashboard in a browser window, showing a 'Production Orders By Time' bar chart" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Go-live projects (Figma 1:3581) ============ -->
+    <section class="section section--grey golive" aria-labelledby="golive-title" data-node-id="1:3581">
+      <div class="container golive__inner">
+        <div class="golive__media" data-reveal>
+          <img src="assets/img/golive-adm.jpg" width="620" height="510" alt="ADM Agriculture: hands inspecting leafy crops in a field" loading="lazy">
+        </div>
+        <div class="golive__copy" data-reveal data-delay="1">
+          <h2 class="section-title section-title--left" id="golive-title">Our recent Go-Live projects</h2>
+          <!-- Only ADM has copy in Figma; the other three need real project summaries -->
+          <ol class="timeline" data-accordion="single">
+            <li class="timeline__item is-open">
+              <h3 class="timeline__heading"><button class="timeline__trigger" type="button" aria-expanded="true" aria-controls="gl-1" id="gl-1-btn">ADM Agriculture</button></h3>
+              <div class="acc-panel" id="gl-1" role="region" aria-labelledby="gl-1-btn">
+                <div class="acc-panel__inner timeline__body">
+                  <p>Folio3 successfully implemented NetSuite Financial First Standard for ADM Agriculture across two Asian subsidiaries, which streamlined financial operations and delivered real-time insights for smarter decision-making.</p>
+                  <div class="timeline__meta">
+                    <p>Services: NetSuite SuiteSuccess Financials First | ERP Support<br>Timeline: 6 months</p>
+                    <img src="assets/img/logo-adm.png" width="80" height="61" alt="ADM" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="timeline__item" data-draft>
+              <h3 class="timeline__heading"><button class="timeline__trigger" type="button" aria-expanded="false" aria-controls="gl-2" id="gl-2-btn">Team Litzen</button></h3>
+              <div class="acc-panel" id="gl-2" role="region" aria-labelledby="gl-2-btn" hidden>
+                <div class="acc-panel__inner timeline__body"><p>Project summary coming soon. <a class="text-link" href="#case-studies">See our case studies</a>.</p></div>
+              </div>
+            </li>
+            <li class="timeline__item" data-draft>
+              <h3 class="timeline__heading"><button class="timeline__trigger" type="button" aria-expanded="false" aria-controls="gl-3" id="gl-3-btn">Baggu</button></h3>
+              <div class="acc-panel" id="gl-3" role="region" aria-labelledby="gl-3-btn" hidden>
+                <div class="acc-panel__inner timeline__body"><p>Project summary coming soon. <a class="text-link" href="#case-studies">See our case studies</a>.</p></div>
+              </div>
+            </li>
+            <li class="timeline__item" data-draft>
+              <h3 class="timeline__heading"><button class="timeline__trigger" type="button" aria-expanded="false" aria-controls="gl-4" id="gl-4-btn">BlackStrap</button></h3>
+              <div class="acc-panel" id="gl-4" role="region" aria-labelledby="gl-4-btn" hidden>
+                <div class="acc-panel__inner timeline__body"><p>Project summary coming soon. <a class="text-link" href="#case-studies">See our case studies</a>.</p></div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Integrations (Figma 1:3619) ============ -->
+    <section class="integrations" id="integrations" aria-labelledby="integrations-title" data-node-id="1:3619">
+      <div class="integrations__canvas" data-reveal>
+        <div class="integrations__copy">
+          <h2 class="integrations__title" id="integrations-title">Connect any platform with our pre-built NetSuite integrations</h2>
+          <p class="integrations__lead">Quick Deployment | Minimum Coding Requirements</p>
+          <a class="btn btn--primary btn--square btn--md" href="#contact">Explore 35+ Connectors</a>
+        </div>
+        <!-- Logo tiles: grid-row / grid-column match the Figma 111px tile pitch -->
+        <ul class="int-tiles" aria-label="Integrations">
+          <li><img src="assets/img/int-shopify.png" width="87" height="87" alt="Shopify" loading="lazy"></li>
+          <li><img src="assets/img/int-bigcommerce.png" width="87" height="87" alt="BigCommerce" loading="lazy"></li>
+          <li><img src="assets/img/int-stripe.png" width="87" height="87" alt="Stripe" loading="lazy"></li>
+          <li><img src="assets/img/int-square.png" width="87" height="87" alt="Square" loading="lazy"></li>
+          <li><img src="assets/img/int-salesforce.png" width="87" height="87" alt="Salesforce" loading="lazy"></li>
+          <li><img src="assets/img/int-hubspot.png" width="87" height="87" alt="HubSpot" loading="lazy"></li>
+          <li><img src="assets/img/int-gmail.png" width="87" height="87" alt="Gmail" loading="lazy"></li>
+          <li><img src="assets/img/int-zendesk.png" width="87" height="87" alt="Zendesk" loading="lazy"></li>
+          <li><img src="assets/img/int-woocommerce.png" width="87" height="87" alt="WooCommerce" loading="lazy"></li>
+          <li><img src="assets/img/int-ebay.png" width="87" height="87" alt="eBay" loading="lazy"></li>
+          <li><img src="assets/img/int-amazon.png" width="87" height="87" alt="Amazon" loading="lazy"></li>
+          <li><img src="assets/img/int-shipstation.png" width="87" height="87" alt="ShipStation" loading="lazy"></li>
+          <li class="int-tiles__dup"><img src="assets/img/int-hubspot.png" width="87" height="87" alt="HubSpot" loading="lazy"></li>
+          <li><img src="assets/img/int-joor.png" width="87" height="87" alt="JOOR" loading="lazy"></li>
+          <li><img src="assets/img/int-sage.png" width="87" height="87" alt="Sage" loading="lazy"></li>
+          <li><img src="assets/img/int-asana.png" width="87" height="87" alt="Asana" loading="lazy"></li>
+          <li><img src="assets/img/int-dhl.png" width="87" height="87" alt="DHL" loading="lazy"></li>
+          <li><img src="assets/img/int-lettuce.png" width="87" height="87" alt="Lettuce" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Testimonials (Figma 1:3817) ============ -->
+    <section class="section section--grey testimonials" aria-labelledby="testimonials-title" data-node-id="1:3817">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="testimonials-title">Our Clients Speak for Our Work</h2>
+          <p class="section-lead section-lead--wide">From startups to Fortune 500s, our clients choose Folio3 as their go-to NetSuite partner for one reason — we deliver. Hear what they say about their transformation journeys, success stories, and the results that followed.</p>
+        </header>
+        <ul class="testimonials__grid" data-reveal data-delay="1">
+          <li class="t-card t-card--feature">
+            <!-- Figma card is a flattened image with the quote baked in; on mobile the photo + live text version is shown -->
+            <picture>
+              <source media="(max-width: 767px)" srcset="assets/img/testimonial-adm-photo.jpg">
+              <img src="assets/img/testimonial-adm.jpg" width="750" height="413" alt="" loading="lazy">
+            </picture>
+            <blockquote class="t-card__quote">
+              <p>Folio3’s expertise and structured approach made our NetSuite implementation seamless, even with complex localization and ERP integration.</p>
+              <footer>Michale Thompson, Financial Director, ADM Agriculture</footer>
+            </blockquote>
+            <button class="play-btn play-btn--card" type="button" data-video data-video-title="ADM Agriculture testimonial" aria-label="Play video: ADM Agriculture testimonial">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+            </button>
+          </li>
+          <li class="t-card">
+            <img src="assets/img/testimonial-naked-wardrobe.jpg" width="360" height="413" alt="Naked Wardrobe" loading="lazy">
+            <button class="t-card__hit" type="button" data-video data-video-title="Naked Wardrobe testimonial" aria-label="Play video: Naked Wardrobe testimonial"></button>
+          </li>
+          <li class="t-card">
+            <img src="assets/img/testimonial-eravant.jpg" width="360" height="413" alt="Eravant" loading="lazy">
+            <button class="t-card__hit" type="button" data-video data-video-title="Eravant testimonial" aria-label="Play video: Eravant testimonial"></button>
+          </li>
+        </ul>
+        <div class="section-cta" data-reveal><a class="btn btn--primary btn--square" href="#">View all testimonials</a></div>
+      </div>
+    </section>
+
+    <!-- ============ Industries (Figma 1:3844) ============ -->
+    <section class="section industries" aria-labelledby="industries-title" data-node-id="1:3844">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="industries-title">Deep Industry Expertise. Real-World Impact</h2>
+          <p class="section-lead section-lead--narrow">With 18+ years of experience and hundreds of successful projects, we understand the nuances of every industry we serve. Our NetSuite solutions are built to fit your business, not the other way around.</p>
+        </header>
+      </div>
+      <div class="marquee" data-marquee data-reveal data-delay="1">
+        <ul class="marquee__row" aria-label="Industries we serve">
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-shirt"/></svg>Apparel, Footwear and Accessories</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-industry"/></svg>Manufacturing</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-utensils"/></svg>Food &amp; Beverage</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-truck"/></svg>Wholesale Distribution</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-heart"/></svg>HealthCare</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-building"/></svg>Real Estate</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-dna"/></svg>Biotech &amp; Pharma</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-chip"/></svg>Software &amp; Technology</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-car"/></svg>Automotive</a></li>
+        </ul>
+        <ul class="marquee__row marquee__row--reverse" aria-label="More industries we serve">
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-cap"/></svg>Education</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-shield"/></svg>Insurance Companies</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-rocket"/></svg>Startups</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-briefcase"/></svg>Small Business</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-calc"/></svg>Accounting</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-hands"/></svg>NonProfit Organization</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-wheat"/></svg>Agriculture</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-landmark"/></svg>Government</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-bell"/></svg>Restaurant</a></li>
+          <li><a class="chip" href="#"><svg aria-hidden="true"><use href="#i-store"/></svg>Retail</a></li>
+        </ul>
+      </div>
+      <div class="container industries__foot" data-reveal>
+        <p>Whatever your industry, we’ve been there, and we’ll take you further.</p>
+        <a class="btn btn--primary btn--square" href="#">View all industries</a>
+      </div>
+    </section>
+
+    <!-- ============ Case studies (Figma 1:3921) ============ -->
+    <section class="section section--grey cases" id="case-studies" aria-labelledby="cases-title" data-node-id="1:3921">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <h2 class="section-title" id="cases-title">Stories of Growth, Scale, and Success — with NetSuite</h2>
+        </header>
+        <div class="cases__body" data-reveal data-delay="1">
+          <div class="case-feature">
+            <img src="assets/img/case-bank-vogue.jpg" width="438" height="656" alt="Bank &amp; Vogue: consolidated multiple systems into NetSuite AFA Premium for streamlined operations." loading="lazy">
+            <button class="play-btn play-btn--case" type="button" data-video data-video-title="Bank &amp; Vogue case study" aria-label="Play video: Bank &amp; Vogue case study">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+            </button>
+          </div>
+          <ul class="cases__grid" aria-label="Client case studies">
+            <li><a href="#"><img src="assets/img/case-blackstrap.png" width="203" height="203" alt="BlackStrap" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-midwest-textile.png" width="203" height="203" alt="Mid-West Textile LLC" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-ingenius-prep.png" width="203" height="203" alt="InGenius Prep" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-oneutilitybill.png" width="203" height="203" alt="oneutilitybill.co" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-ready-computing.png" width="203" height="203" alt="Ready Computing" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-united-california-glass.png" width="203" height="203" alt="United California Glass &amp; Door" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-cooperative-computing.png" width="203" height="203" alt="Cooperative Computing" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-frankston-packaging.png" width="203" height="203" alt="Frankston Packaging" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-biomason.png" width="203" height="203" alt="Biomason" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-naked-wardrobe.png" width="203" height="203" alt="Naked Wardrobe" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-core.png" width="203" height="203" alt="CORE" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-gro-well.png" width="203" height="203" alt="Gro-Well Brands" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-rebag.png" width="203" height="203" alt="Rebag" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-crp.png" width="203" height="203" alt="CRP" loading="lazy"></a></li>
+            <li><a href="#"><img src="assets/img/case-team-litzen.png" width="203" height="203" alt="Team Litzen" loading="lazy"></a></li>
+          </ul>
+        </div>
+        <div class="section-cta" data-reveal><a class="btn btn--primary btn--square" href="#">View all Case studies</a></div>
+      </div>
+    </section>
+
+    <!-- ============ Clutch (Figma 1:4249) ============ -->
+    <section class="section clutch" aria-labelledby="clutch-title" data-node-id="1:4249">
+      <div class="container clutch__inner">
+        <div class="clutch__copy" data-reveal>
+          <h2 class="clutch__title" id="clutch-title">
+            <span class="clutch__rated">Rated <span class="stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span>
+            by Clients on Clutch
+          </h2>
+          <p class="clutch__text">We’re proud to be recognized for our consistency, quality, and impact.</p>
+          <a class="link-arrow link-arrow--red" href="#">View Our Client Reviews on Clutch <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+        <div class="carousel clutch__carousel" data-carousel data-reveal data-delay="1">
+          <ul class="carousel__track clutch__track" aria-label="Clutch badges">
+            <li><img src="assets/img/clutch-erp-consulting.png" width="206" height="220" alt="Clutch Top ERP Consulting Company, San Francisco 2024" loading="lazy"></li>
+            <li><img src="assets/img/clutch-netsuite.png" width="206" height="220" alt="Clutch Top NetSuite Company 2024" loading="lazy"></li>
+            <li><img src="assets/img/clutch-it-services.png" width="206" height="220" alt="Clutch Top IT Services Company, Automotive, San Francisco" loading="lazy"></li>
+            <li><img src="assets/img/clutch-software-developers.png" width="206" height="220" alt="Clutch Top Software Developers, Manufacturing, San Francisco" loading="lazy"></li>
+          </ul>
+          <div class="carousel__arrows">
+            <button class="arrow-btn" type="button" data-carousel-prev aria-label="Previous badges"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <button class="arrow-btn" type="button" data-carousel-next aria-label="Next badges"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (Figma 1:4272) ============ -->
+    <section class="section section--grey faq" aria-labelledby="faq-title" data-node-id="1:4272">
+      <div class="container">
+        <h2 class="faq__title" id="faq-title" data-reveal>Frequently Asked Questions</h2>
+        <div class="tabs" data-tabs>
+          <!-- Tab labels are as in Figma; they look carried over from another product page – confirm with design -->
+          <div class="faq__tablist" role="tablist" aria-label="FAQ topics" data-reveal data-delay="1">
+            <button class="faq__tab" role="tab" id="faq-tab-1" aria-controls="faq-panel-1" aria-selected="true">Property Types</button>
+            <button class="faq__tab" role="tab" id="faq-tab-2" aria-controls="faq-panel-2" aria-selected="false" tabindex="-1">Who It's For</button>
+            <button class="faq__tab" role="tab" id="faq-tab-3" aria-controls="faq-panel-3" aria-selected="false" tabindex="-1">Investment Management</button>
+            <button class="faq__tab" role="tab" id="faq-tab-4" aria-controls="faq-panel-4" aria-selected="false" tabindex="-1">Integrations</button>
+            <button class="faq__tab" role="tab" id="faq-tab-5" aria-controls="faq-panel-5" aria-selected="false" tabindex="-1">Features</button>
+          </div>
+
+          <div class="faq__panel" role="tabpanel" id="faq-panel-1" aria-labelledby="faq-tab-1" tabindex="0">
+            <div class="faq-acc" data-accordion="single">
+              <div class="faq-acc__item is-open">
+                <h3 class="faq-acc__heading"><button class="faq-acc__trigger" type="button" aria-expanded="true" aria-controls="faq-1" id="faq-1-btn">What's your approach to making sure our NetSuite implementation actually works?<span class="faq-acc__sign" aria-hidden="true"></span></button></h3>
+                <div class="acc-panel" id="faq-1" role="region" aria-labelledby="faq-1-btn">
+                  <div class="acc-panel__inner faq-acc__body"><p>We've done this 500+ times, so we know what works. Our approach is straightforward - we start by understanding your business goals, then build a realistic roadmap that won't disrupt your current operations. You'll always know what's happening, when it's happening, and how it impacts your bottom line. We stick to a clear, phased plan that keeps your business goals front and center. Our focus is on getting you live with minimal disruption.</p></div>
+                </div>
+              </div>
+              <!-- Answers below are DRAFT (not in Figma) -->
+              <div class="faq-acc__item" data-draft>
+                <h3 class="faq-acc__heading"><button class="faq-acc__trigger" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-btn">What's the typical timeline for a NetSuite project?<span class="faq-acc__sign" aria-hidden="true"></span></button></h3>
+                <div class="acc-panel" id="faq-2" role="region" aria-labelledby="faq-2-btn" hidden>
+                  <div class="acc-panel__inner faq-acc__body"><p>It depends on scope, the number of subsidiaries and how much data and integration work is involved. After discovery we share a phased plan with clear milestones, so you know exactly when each part goes live.</p></div>
+                </div>
+              </div>
+              <div class="faq-acc__item" data-draft>
+                <h3 class="faq-acc__heading"><button class="faq-acc__trigger" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-btn">Can you help optimize or fix an existing NetSuite setup?<span class="faq-acc__sign" aria-hidden="true"></span></button></h3>
+                <div class="acc-panel" id="faq-3" role="region" aria-labelledby="faq-3-btn" hidden>
+                  <div class="acc-panel__inner faq-acc__body"><p>Yes. We start with a health check of your configuration, customizations and workflows, then prioritize fixes and improvements by business impact.</p></div>
+                </div>
+              </div>
+              <div class="faq-acc__item" data-draft>
+                <h3 class="faq-acc__heading"><button class="faq-acc__trigger" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-btn">We're already live on NetSuite, but need to do more. Can you help?<span class="faq-acc__sign" aria-hidden="true"></span></button></h3>
+                <div class="acc-panel" id="faq-4" role="region" aria-labelledby="faq-4-btn" hidden>
+                  <div class="acc-panel__inner faq-acc__body"><p>Absolutely. From new modules and automation to reporting and integrations, we help you extend NetSuite as your business grows, with ongoing support after each release.</p></div>
+                </div>
+              </div>
+              <div class="faq-acc__item" data-draft>
+                <h3 class="faq-acc__heading"><button class="faq-acc__trigger" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-btn">Can you integrate NetSuite with my existing tools and platforms?<span class="faq-acc__sign" aria-hidden="true"></span></button></h3>
+                <div class="acc-panel" id="faq-5" role="region" aria-labelledby="faq-5-btn" hidden>
+                  <div class="acc-panel__inner faq-acc__body"><p>Yes. We offer 50+ prebuilt integrations for eCommerce, CRM, payments, shipping and marketplaces, and build custom integrations for anything else.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="faq__panel" role="tabpanel" id="faq-panel-2" aria-labelledby="faq-tab-2" tabindex="0" hidden data-draft><p class="faq__empty">Questions for this topic are on the way. <a class="text-link" href="#contact">Ask us directly</a>.</p></div>
+          <div class="faq__panel" role="tabpanel" id="faq-panel-3" aria-labelledby="faq-tab-3" tabindex="0" hidden data-draft><p class="faq__empty">Questions for this topic are on the way. <a class="text-link" href="#contact">Ask us directly</a>.</p></div>
+          <div class="faq__panel" role="tabpanel" id="faq-panel-4" aria-labelledby="faq-tab-4" tabindex="0" hidden data-draft><p class="faq__empty">Questions for this topic are on the way. <a class="text-link" href="#contact">Ask us directly</a>.</p></div>
+          <div class="faq__panel" role="tabpanel" id="faq-panel-5" aria-labelledby="faq-tab-5" tabindex="0" hidden data-draft><p class="faq__empty">Questions for this topic are on the way. <a class="text-link" href="#contact">Ask us directly</a>.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact (Figma 1:4307) ============ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title" data-node-id="1:4307">
+      <div class="container contact__inner">
+        <div class="contact__intro" data-reveal>
+          <h2 class="contact__title" id="contact-title">We'd love to help you with all your NetSuite needs</h2>
+          <div class="contact__map">
+            <img src="assets/img/world-map.png" width="775" height="410" alt="" loading="lazy">
+            <ul class="contact__pins" aria-label="Folio3 office locations">
+              <li><span class="pin-label">Canada</span></li>
+              <li><span class="pin-label">United States</span></li>
+              <li><span class="pin-label">Mexico</span></li>
+              <li><span class="pin-label">United Kingdom</span></li>
+              <li><span class="pin-label">Bulgaria</span></li>
+              <li class="is-below"><span class="pin-label">UAE</span></li>
+              <li class="is-right"><span class="pin-label">Pakistan</span></li>
+              <li><span class="pin-label">Australia</span></li>
+            </ul>
+          </div>
+          <p class="contact__offices" aria-hidden="true">Canada · United States · Mexico · United Kingdom · Bulgaria · UAE · Pakistan · Australia</p>
+        </div>
+
+        <div class="contact__card" data-reveal data-delay="1">
+          <h3 class="contact__card-title" id="form-title">Start here- let us know how we can help</h3>
+          <!-- Not wired to a backend yet: set data-endpoint (and CSP connect-src) to your CRM/forms endpoint -->
+          <form class="form" id="contact-form" novalidate aria-labelledby="form-title" data-endpoint="">
+            <div class="form__row">
+              <div class="field"><label class="sr-only" for="f-name">Full Name</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Full Name" maxlength="100" required><p class="field__error" id="f-name-err"></p></div>
+              <div class="field"><label class="sr-only" for="f-phone">Phone Number</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone Number" inputmode="tel" pattern="[0-9+()\-\s]{7,20}"><p class="field__error" id="f-phone-err"></p></div>
+            </div>
+            <div class="field"><label class="sr-only" for="f-email">Company Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="Company Email" maxlength="254" required><p class="field__error" id="f-email-err"></p></div>
+            <div class="field field--select">
+              <label class="sr-only" for="f-service">What services are you interested in?</label>
+              <select id="f-service" name="service" required>
+                <option value="" selected disabled>What Services Are You Interested In?</option>
+                <option>NetSuite Implementation</option>
+                <option>NetSuite Module</option>
+                <option>NetSuite Migration</option>
+                <option>NetSuite Integration</option>
+                <option>NetSuite Optimization</option>
+                <option>NetSuite Support</option>
+                <option>SuiteCommerce</option>
+                <option>Other</option>
+              </select>
+              <svg class="field__chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+              <p class="field__error" id="f-service-err"></p>
+            </div>
+            <div class="field"><label class="sr-only" for="f-message">Message</label><textarea id="f-message" name="message" rows="3" placeholder="Message" maxlength="2000"></textarea></div>
+            <div class="field field--captcha">
+              <label for="f-captcha" class="field__prefix">4+2=</label>
+              <input id="f-captcha" name="captcha" type="text" inputmode="numeric" placeholder="Please Give Your Answer Here" maxlength="3" required autocomplete="off">
+              <p class="field__error" id="f-captcha-err"></p>
+            </div>
+            <div class="field field--check">
+              <input id="f-terms" name="terms" type="checkbox" required>
+              <label for="f-terms">By submitting the form you agree to <a href="#">terms &amp; condition and privacy policy</a> of Folio3</label>
+              <p class="field__error" id="f-terms-err"></p>
+            </div>
+            <button class="btn btn--primary btn--jakarta form__submit" type="submit">Send</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ============ Footer (Figma 1:4386) ============ -->
+  <footer class="site-footer" data-node-id="1:4386">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__about">
+          <a class="site-footer__logo" href="/" aria-label="Folio3 – Oracle NetSuite Alliance Partner, home"><img src="assets/img/logo-folio3-netsuite-white.png" width="251" height="58" alt="Folio3 | Oracle NetSuite Alliance Partner" loading="lazy"></a>
+          <p class="site-footer__tagline">We work as one! Innovation is our core, creativity is in our DNA, and launching and growing brands is our passion.</p>
+          <p class="site-footer__blurb">Folio3 is an award-winning, leading software development and implementation company with a legacy of over 18 years of providing top-notch NetSuite services to clients, including Fortune 500 companies.</p>
+          <ul class="site-footer__contact">
+            <li><span class="site-footer__badge"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><a href="tel:+14083654638">+1 (408) 365-4638</a></li>
+            <li><span class="site-footer__badge"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><a href="mailto:netsuite.sales@folio3.com">netsuite.sales@folio3.com</a></li>
+            <!-- Figma repeats the email next to a location pin; an address probably belongs here -->
+            <li><span class="site-footer__badge"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><a href="mailto:netsuite.sales@folio3.com">netsuite.sales@folio3.com</a></li>
+          </ul>
+          <ul class="site-footer__social">
+            <li><a href="#"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>Linkedin</a></li>
+            <li><a href="#"><svg aria-hidden="true"><use href="#i-facebook"/></svg>facebook</a></li>
+            <li><a href="#"><svg aria-hidden="true"><use href="#i-x"/></svg>twitter</a></li>
+          </ul>
+        </div>
+
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div class="f-col f-col--products">
+            <h2 class="f-col__title">Products</h2>
+            <ul>
+              <li><a href="#">Magento</a></li><li><a href="#">Shopify</a></li><li><a href="#">B2B Bigcommerce</a></li><li><a href="#">B2C BigCommerce</a></li><li><a href="#">Amazon</a></li><li><a href="#">WooCommerce</a></li><li><a href="#">Salesforce</a></li><li><a href="#">Hubspot</a></li><li><a href="#">Square</a></li><li><a href="#">Stripe</a></li><li><a href="#">Mintsoft</a></li><li><a href="#">eBay</a></li>
+              <li><a href="#">AmberRoad</a></li><li><a href="#">SagePay</a></li><li><a href="#">Walmart</a></li><li><a href="#">DPD</a></li><li><a href="#">DHL Express</a></li><li><a href="#">Shipstation</a></li><li><a href="#">ILG</a></li><li><a href="#">Aramex</a></li><li><a href="#">Global eShipment</a></li><li><a href="#">Gmail</a></li><li><a href="#">Outlook</a></li><li><a href="#">Cropster</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h2 class="f-col__title">Services</h2>
+            <ul>
+              <li><a href="#">NetSuite AI-Services</a></li><li><a href="#">NetSuite Integrations</a></li><li><a href="#">NetSuite Implementation</a></li><li><a href="#">NetSuite Customization</a></li><li><a href="#">NetSuite Support Services</a></li><li><a href="#">NetSuite SuiteProject Pro</a></li><li><a href="#">SuiteCommerce Migration</a></li><li><a href="#">NetSuite Consultation</a></li><li><a href="#">NetSuite GDPR Compliance</a></li><li><a href="#">SuiteCommerce Development</a></li><li><a href="#">NetSuite Field Service Management</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h2 class="f-col__title">Quick Links</h2>
+            <ul>
+              <li><a href="#">Blogs</a></li><li><a href="#">Content Library</a></li><li><a href="#">Events and Webinars</a></li><li><a href="#">Customer Stories</a></li><li><a href="#">Customer Testimonials</a></li><li><a href="#">NetSuite Partnership</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#contact">Contact us</a></li><li><a href="#">About us</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h2 class="f-col__title">Solutions</h2>
+            <ul>
+              <li><a href="#">ESCMS</a></li><li><a href="#">NStitch</a></li><li><a href="#">Propertese</a></li><li><a href="#">DCAA Compliance</a></li><li><a href="#">NetSuite AI-Assistant</a></li><li><a href="#">NetSuite Mobility Solution</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <form class="newsletter" id="newsletter-form" novalidate data-endpoint="">
+        <label class="newsletter__label" for="nl-email">Subscribe to our <strong>Newsletter!</strong></label>
+        <div class="newsletter__field">
+          <input id="nl-email" name="email" type="email" autocomplete="email" placeholder="Your email here" maxlength="254" required>
+          <button class="newsletter__btn" type="submit">Submit Now <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+        </div>
+        <p class="form__status newsletter__status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="site-footer__copy">© 2025, Folio3 Software Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Video lightbox (play buttons). Add data-video-src="…mp4" on a trigger to play a real file. -->
+  <dialog class="video-dialog" id="video-dialog" aria-labelledby="video-dialog-title">
+    <div class="video-dialog__box">
+      <button class="video-dialog__close" type="button" data-dialog-close aria-label="Close video"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <h2 class="video-dialog__title" id="video-dialog-title">Video</h2>
+      <div class="video-dialog__stage"><p class="video-dialog__empty">The video for this item hasn’t been added yet.</p></div>
+    </div>
+  </dialog>
 
   <script src="js/main.js" defer></script>
 </body>

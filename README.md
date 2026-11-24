@@ -1,59 +1,99 @@
-# Folio3 NetSuite homepage: header + hero
+# Folio3 NetSuite homepage
 
-Built from Figma **Netsuite-2025 → "Home page"** (node `13042:13452`), sections:
-
-| Section | Figma node | Markup |
-|---|---|---|
-| Site header | `13042:13555` | `<header class="site-header">` |
-| Hero | `13042:13617` | `<section class="hero">` |
+Built from Figma **Ali Designs → "Home page"** (node `1:1022`). The site header and the **Nexus AI** section come from the earlier "Netsuite-2025" file (`13042:13452`) and are kept as they were.
 
 Plain HTML/CSS/JS, no build step. Run: `python3 -m http.server 4173` and open http://localhost:4173.
 
+## Sections
+| # | Section | Figma node | Markup |
+|---|---|---|---|
+| 1 | Site header (unchanged) | `13042:13555` / `1:1125` | `header.site-header` |
+| 2 | Hero with dashboard and video button | `1:1187` | `section.hero` |
+| 3 | Client logos | `1:1756` | `section.clients` |
+| 4 | Nexus AI agents (kept, not in the new frame) | `13042:13664` | `section.nexus` |
+| 5 | Services tabs | `1:1893` | `section.services` |
+| 6 | Stats | `1:2289` | `section.stats` |
+| 7 | Awards | `1:2329` | `section.awards` |
+| 8 | Niche solutions accordion | `1:2989` | `section.solutions` |
+| 9 | Go-live projects timeline | `1:3581` | `section.golive` |
+| 10 | Integrations | `1:3619` | `section.integrations` |
+| 11 | Testimonials | `1:3817` | `section.testimonials` |
+| 12 | Industries marquee | `1:3844` | `section.industries` |
+| 13 | Case studies | `1:3921` | `section.cases` |
+| 14 | Clutch badges | `1:4249` | `section.clutch` |
+| 15 | FAQ | `1:4272` | `section.faq` |
+| 16 | Contact form | `1:4307` | `section.contact` |
+| 17 | Footer and newsletter | `1:4386` | `footer.site-footer` |
+
+Every section carries its `data-node-id` for traceability.
+
 ## Files
-- `index.html`: markup (each section carries its `data-node-id` for traceability)
-- `css/styles.css`: tokens from Figma variables (`--primary-red #ec1515`, `--text-lighter #303030`, `--text-full-light #585858`, `--secondary-blue #ecf2fd`), components, breakpoints
-- `js/main.js`: sticky-header scroll state and the tablet/mobile nav drawer
-- `assets/fonts/`: Poppins 300/400/500/600, Plus Jakarta Sans 500 (self-hosted woff2, from @fontsource)
-- `assets/img/`: logo, hero background, avatars, partner logos (exported from Figma)
-- `qa/`: Figma reference render and breakpoint screenshots
+- `index.html`: markup and an inline SVG icon sprite
+- `css/styles.css`: Figma variables as tokens (`--primary-red`, `--text-lighter`, `--text-full-light`, `--grey-highlights`, `--yellow`, `--secondary`, `--bg`, …), components, breakpoints, motion
+- `js/main.js`: header scroll state and drawer, tabs, accordions, carousels, marquee, video dialog, form validation, scroll animations
+- `assets/fonts/`: Poppins 300–600 and Plus Jakarta Sans 500/600/700 (self-hosted woff2, SIL OFL)
+- `assets/img/`: images exported from Figma
+- `qa/`: Figma reference (`figma-reference-home-1920.jpg`), breakpoint screenshots (`shots/`), and the test scripts (`screenshots.py`, `interactions.py`; need `pip install playwright && playwright install chromium`, plus the local server running)
 
 ## Responsive behaviour
-| Width | Header | Hero |
-|---|---|---|
-| ≥1536 | Figma spec: 90px, 192px side margins at 1920, 6 nav links, search, "Get Started" | 140px vertical padding, 54/70 title, 5 partner cards in a row |
-| 1200–1535 | Nav link padding tightened (12px, then 9px/15px below 1320) so it stays on one row | Same as desktop |
-| 768–1199 | 76px tall; nav collapses into a drop-down drawer (hamburger), search + "Get Started" stay visible | 96px padding, 44/58 title, partner cards wrap 3 + 2 |
-| <768 | 68px tall; "Get Started" moves into the drawer | 30/40 title, 16/26 body, buttons stack full-width (max 360px), avatars stack above label, partner cards in a 2-column grid |
+| Width | Behaviour |
+|---|---|
+| ≥1600 | Figma spec: 1536px content, fixed Figma column widths |
+| 1200–1599 | Two-column sections become fluid; service tabs and nav tighten so they stay on one row |
+| 768–1199 | Header drawer. Two-column sections stack (text, then media). Integrations become a centred logo grid under the copy. Testimonials: feature card full width, two cards below. Case studies: feature card above a 5-column logo grid. Tab bars scroll horizontally. |
+| <768 | Single column. Stats in 2 columns. Awards become a swipeable carousel with dots, Clutch 2 per view. Feature testimonial switches to a text-free photo with a live quote. Case logos in 3 columns. Map labels become a text line under the map below 560px. Footer link lists stack. |
 
-## Interactions
-- **Sticky header scroll state**: the header is `position: sticky`. After 8px of scroll it gets `.is-scrolled`, which adds a shadow, a translucent blurred background, compacts the height (90 → 72px desktop) and shrinks the logo. The trigger is an IntersectionObserver on a sentinel element, with a scroll-listener fallback.
-- **Nav drawer** (<1200px): aria-expanded/aria-controls; closes on Escape, an outside click, a link click, or resizing past the breakpoint; page scroll is locked while open.
-- **Hover/focus**: nav links get a red underline that grows in (Figma carries a 0-width `--primary` bottom border on nav items). Buttons darken and lift slightly. Partner cards lift. All controls have a `:focus-visible` outline.
-- **Micro-animations** (in `js/main.js` + the "Micro-animations" block in `css/styles.css`):
-  - Hero copy, buttons, experts row and partner cards fade up in a short stagger on load.
-  - The red "Certified NetSuite Experts" words get one soft light sweep after the headline lands.
-  - "+150" counts up from 0 when the experts row comes into view.
-  - Nexus AI: the hub pops in, the dashed connectors draw outward from it, then the six agents rise in. Afterwards the dashes flow slowly toward the right, the hub glow breathes and a faint ring ripples out every few seconds.
-  - Everything runs once per element (IntersectionObserver), uses only opacity/transform/clip-path, and rests at the normal final state.
-- `prefers-reduced-motion: reduce` turns all animation off and shows everything immediately. With JavaScript disabled the page renders fully, with no animation.
-
-## Needs developer review
-1. **Merge into the real codebase.** No existing project was reachable, so this is standalone. Port the markup and CSS into your components and map the tokens to your existing variables and button component.
-2. **Asset quality.** The cloud workspace couldn't reach figma.com, so the images are 1× renders of the Figma nodes. Re-export from Figma before production: the **logo as SVG** (node `13042:13558`), the **Salesforce mark as SVG** (`13042:13659`), and the avatars and partner logos at 2× (`13042:13641`–`13645`, `13042:13651/53/55/57`). The hero background (`13042:13618`) is a flattened render of the photo, gradient and line art; consider rebuilding it from its layers or exporting a WebP.
-3. **Hero background crop.** The Figma background frame is 1576px tall but the hero is 854px. The build uses the top 1000px with `background-size: cover`. Confirm the intended crop on tablet and mobile with design.
-4. **Not specified in Figma**, so these are my calls: tablet/mobile layouts, the drawer design, the sticky compact height, and hover colours (`#c90f0f` red hover, inverted outline button).
-5. **Search button** has no behaviour yet. Figma has hidden "Search" label and close-icon layers, which suggests an expanding search field.
-6. **Nav dropdowns.** Figma shows plain links. If the live site has mega-menus, wire them into `.primary-nav__list`.
-7. **Link targets** (`#contact`, `#services`, `#`) are placeholders.
-8. The "Talk to Experts" arrow uses Font Awesome Pro `arrow-up-right` in Figma; it's an inline SVG approximation here. Swap in your icon set.
-9. Hero height measures 851px vs 854px in Figma, a 3px difference from font metrics in the body copy.
+## Interactions and motion
+- **Tabs** (services, FAQ): WAI-ARIA tabs with arrow/Home/End keys. On services, a red pill slides to the active tab. Panels cross-fade.
+- **Accordions** (solutions, go-live, FAQ): one item open at a time, with animated height and correct `aria-expanded` state.
+- **Carousels** (awards, Clutch): CSS scroll-snap. Dots appear and prev/next arrows disable only when there is something to scroll.
+- **Video buttons** (hero, testimonials, case study): open an accessible `<dialog>`. Add `data-video-src="media/file.mp4"` to a button to play a real file. Only same-origin `.mp4`/`.webm` paths are accepted.
+- **Forms**: client-side validation with inline errors, `aria-invalid`, and focus on the first error. Nothing is sent until you configure an endpoint (see review list).
+- **Micro-animations**, all subtle and run once unless noted:
+  - Sections fade up as they enter the viewport.
+  - Grids cascade in (stats, awards, case logos, Clutch badges, client logos).
+  - The hero dashboard settles up from a slight tilt, and a soft ring pulses from its play button.
+  - Stats count up to their values.
+  - The go-live rail fills red as you scroll.
+  - Integration tiles pop in, then drift by a few pixels.
+  - The two industry rows drift in opposite directions and pause on hover or focus.
+  - The Clutch stars light up in sequence.
+  - Map pins drop in and their rings pulse.
+  - Arrow links nudge once.
+  - The existing header scroll state, hero headline sheen and Nexus diagram animations are kept.
+- Motion only uses opacity and transform. With `prefers-reduced-motion: reduce`, everything renders static (the marquee becomes a wrapped list). With JavaScript off, all content is visible.
 
 ## Security
-- No third-party scripts, CDNs, trackers or remote fonts: everything is served from the site itself.
-- Content-Security-Policy (meta tag) allows only same-origin scripts/styles/fonts/images plus `data:` images; the one inline script (adds the `js` class) is allowed by its SHA-256 hash. If you change that script, update the hash.
-- `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`, `upgrade-insecure-requests`, strict referrer policy.
-- The script writes only `textContent` / classes, never HTML, so there is no injection path.
-- No secrets, tokens or expiring Figma asset URLs in the repo.
-- `noindex, nofollow` keeps this public preview out of search engines. **Remove it at launch.**
-- Header-only protections (`frame-ancestors`, HSTS, `X-Content-Type-Options`) can't be set from a meta tag or on GitHub Pages; set them on the production server/CDN.
-- Font licences (SIL OFL) are included in `assets/fonts/`.
+- Strict Content-Security-Policy (meta tag): only same-origin scripts, styles, fonts, images and media. No inline styles. The one inline script is allowed by its hash. Also sets `object-src 'none'`, `frame-src 'none'`, `worker-src 'none'`, `base-uri 'self'`, `form-action 'self'` and `require-trusted-types-for 'script'`. If you change the inline script, update its hash.
+- The script never builds HTML from strings. It only uses `textContent`, classes and DOM nodes, so form input can't inject markup (this is tested in `qa/interactions.py`).
+- Forms post only to a same-origin path (`data-endpoint="/…"`). The default is no endpoint, so no data leaves the page. Inputs have `maxlength` limits.
+- No third-party scripts, CDNs, trackers, remote fonts, secrets or expiring Figma URLs.
+- `noindex, nofollow` keeps the preview out of search engines. **Remove it at launch.**
+- Header-only protections (`frame-ancestors`, HSTS, `X-Content-Type-Options`, `Permissions-Policy`) can't be set from a meta tag; set them on the server/CDN.
+
+## Needs developer review
+1. **Nexus AI placement.** The section isn't in the new Figma frame. It's kept after the client logos (where it sat before). Confirm placement with design, or remove it.
+2. **Image quality.** The Figma export limit is 1×, so images are 1× crops of the Figma renders. Re-export at 2× (logos and badges as SVG) before launch.
+3. **Flattened cards.** The testimonial cards and the Bank & Vogue case card are single images in Figma with the text baked in. They're used as images with full alt text. Supply the source photos and logos so the quotes can be live text at every size (mobile already does this for the ADM card).
+4. **Draft copy (marked `data-draft` in the HTML), not in Figma:**
+   - service tabs 2–7;
+   - solution accordion items 2–4;
+   - FAQ answers 2–5;
+   - "coming soon" text for go-live items 2–4 and FAQ tabs 2–5.
+   All of these need approved content.
+5. **FAQ tab labels** ("Property Types", "Investment Management", …) look carried over from another product page. They're kept as designed; please confirm.
+6. **Visuals for the other services and solutions.** Service tabs 2–7 reuse the implementation dashboard, and all solution items show the NStitch screen. Supply per-tab and per-product visuals.
+7. **Videos.** No video files were supplied, so play buttons open the dialog with a "not added yet" message.
+8. **Forms.**
+   - Set `data-endpoint` on `#contact-form` and `#newsletter-form`.
+   - Replace the client-side "4+2" check with server-side verification. A client-side check is not real bot protection.
+   - Add a privacy-policy link target.
+9. **Carousels.** Figma shows 3 pages of award badges and arrows on the Clutch row, but only 6 awards and 4 Clutch badges exist. Add more badges and the controls activate automatically.
+10. **Industries.** Figma has a hidden "Manufacturing" detail panel ("Click here to learn more"), which suggests a per-industry detail view. It isn't built. Chips are links (`#` for now).
+11. **Footer.**
+    - The third contact row repeats the email next to a location pin; it probably needs an address.
+    - Social links are `#`.
+    - The Figma frame also has a "Copyright © 2025 Folio3 FoodTech" bar from another brand. It was left out on purpose.
+12. **Icons.** Font Awesome Pro icons are replaced with inline SVG approximations. Swap in your icon set if you have the licence.
+13. **Link targets.** "View all …" buttons, nav items and chips point to `#`.
+14. **Off-canvas layers.** Several layers sit outside the 1920 frame in Figma (a "Start The Transformation" button, ellipses and a bitmap). These are treated as leftovers and not built.
