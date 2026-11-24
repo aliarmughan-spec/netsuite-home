@@ -197,6 +197,27 @@ function $$(sel, root) { return Array.prototype.slice.call((root || document).qu
       }
     }
 
+    // Optional: the open item swaps a companion image (solutions screenshot, go-live photo)
+    var mediaSel = root.getAttribute("data-media-target");
+    var media = mediaSel ? document.querySelector(mediaSel) : null;
+    if (media) {
+      // warm the cache so swaps are instant
+      $$("[data-media-src]", root).forEach(function (it) { var i = new Image(); i.src = it.getAttribute("data-media-src"); });
+    }
+    function swapMedia(item) {
+      if (!media || !item) return;
+      var src = item.getAttribute("data-media-src");
+      if (!src || media.getAttribute("src") === src) return;
+      var apply = function () {
+        media.src = src;
+        media.alt = item.getAttribute("data-media-alt") || "";
+        media.classList.remove("is-swapping");
+      };
+      if (REDUCED) { apply(); return; }
+      media.classList.add("is-swapping");
+      window.setTimeout(apply, 180);
+    }
+
     triggers.forEach(function (btn) {
       btn.addEventListener("click", function () {
         var willOpen = btn.getAttribute("aria-expanded") !== "true";
@@ -204,6 +225,7 @@ function $$(sel, root) { return Array.prototype.slice.call((root || document).qu
           triggers.forEach(function (other) { if (other !== btn && other.getAttribute("aria-expanded") === "true") setItem(other, false); });
         }
         setItem(btn, willOpen);
+        if (willOpen) swapMedia(btn.closest("[data-media-src]"));
       });
     });
   });
