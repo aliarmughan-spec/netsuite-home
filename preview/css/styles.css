@@ -593,7 +593,9 @@ button { font: inherit; color: inherit; }
    ========================================================= */
 /* Active card is wide (750) and shows the quote image; the others are narrow (360) logo cards.
    The grid column widths animate when the active card changes. */
-.testimonials__grid { display: grid; grid-template-columns: 750fr 360fr 360fr; gap: 30px; height: 413px; transition: grid-template-columns .6s var(--ease); }
+.testimonials .container { container-type: inline-size; }
+/* Row height follows the wide column so its 750×413 quote image is never cropped */
+.testimonials__grid { display: grid; grid-template-columns: 750fr 360fr 360fr; gap: 30px; height: calc((100cqw - 60px) * 413 / 1470); transition: grid-template-columns .6s var(--ease); }
 .testimonials__grid[data-active="1"] { grid-template-columns: 360fr 750fr 360fr; }
 .testimonials__grid[data-active="2"] { grid-template-columns: 360fr 360fr 750fr; }
 .t-card { position: relative; overflow: hidden; border-radius: 20px; background: #222; }
@@ -1028,6 +1030,9 @@ button { font: inherit; color: inherit; }
 @keyframes star-in { from { opacity: 0; transform: scale(.4) rotate(-30deg); } to { opacity: 1; transform: none; } }
 @keyframes ripple-dot { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(2.8); } }
 @keyframes panel-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes soft-zoom { from { transform: scale(1.04); } to { transform: none; } }
+@keyframes quote-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes outline-in { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
 @keyframes nudge { 0%, 100% { transform: none; } 40% { transform: translateX(5px); } }
 @keyframes sheen { from { background-position: 120% 0; } to { background-position: -20% 0; } }
 
@@ -1083,6 +1088,26 @@ button { font: inherit; color: inherit; }
 
   /* Accordion content eases in as it opens */
   .is-open > .acc-panel > .acc-panel__inner { animation: panel-in .45s var(--ease); }
+
+  /* Service / FAQ panels: bullets and button follow the panel in, one after another */
+  .services__panel.is-entering .check-list li, .services__panel.is-entering .btn { animation: panel-in .5s var(--ease) backwards; }
+  .services__panel.is-entering .check-list li:nth-child(1) { animation-delay: .08s; }
+  .services__panel.is-entering .check-list li:nth-child(2) { animation-delay: .14s; }
+  .services__panel.is-entering .check-list li:nth-child(3) { animation-delay: .2s; }
+  .services__panel.is-entering .btn { animation-delay: .26s; }
+  .services__panel.is-entering .services__media img { animation: soft-zoom .9s var(--ease); }
+
+  /* Swapped images (case card, solution screen, go-live photo) settle in with a soft zoom */
+  .case-feature img.is-fresh, .solutions__media img.is-fresh, .golive__media img.is-fresh { animation: soft-zoom .8s var(--ease); }
+
+  /* Testimonial: the quote layer of a newly active card rises slightly as it fades in */
+  .t-card.is-active .t-card__img--wide { animation: quote-in .6s var(--ease); }
+
+  /* Case logo tile: red outline draws in when selected */
+  .cases__tile[aria-pressed="true"]::after { animation: outline-in .35s var(--ease); }
+
+  /* Check marks pop in as their list appears */
+  .js .is-in .check-list li::before, .services__panel.is-entering .check-list li::before { animation: pop .45s var(--ease) backwards; animation-delay: inherit; }
 
   /* Arrow links nudge once when their section appears */
   .js .is-in .link-arrow svg { animation: nudge .9s var(--ease) .9s 1 backwards; }

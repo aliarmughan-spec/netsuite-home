@@ -92,7 +92,15 @@
 
 /* Shared helpers */
 var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// restart a one-shot CSS animation on an element
+function fresh(el) { el.classList.remove("is-fresh"); void el.offsetWidth; el.classList.add("is-fresh"); }
 function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+/* ---- Placeholder links (href="#") stay put instead of jumping to the top of the page */
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest('a[href="#"]');
+  if (a) e.preventDefault();
+});
 
 /* ---- Tabs (services + FAQ): WAI-ARIA tabs with arrow-key support and a sliding "ink" pill */
 (function () {
@@ -212,6 +220,7 @@ function $$(sel, root) { return Array.prototype.slice.call((root || document).qu
         media.src = src;
         media.alt = item.getAttribute("data-media-alt") || "";
         media.classList.remove("is-swapping");
+        fresh(media);
       };
       if (REDUCED) { apply(); return; }
       media.classList.add("is-swapping");
@@ -326,7 +335,10 @@ function $$(sel, root) { return Array.prototype.slice.call((root || document).qu
     if (!hit) return;
     hit.addEventListener("click", function () { activate(i); });
     hit.addEventListener("focus", function () { activate(i); });
-    card.addEventListener("mouseenter", function () { if (canHover.matches) activate(i); });
+    // short hover intent so sweeping the pointer across the row doesn't flick between cards
+    var t;
+    card.addEventListener("mouseenter", function () { if (canHover.matches) t = window.setTimeout(function () { activate(i); }, 140); });
+    card.addEventListener("mouseleave", function () { window.clearTimeout(t); });
   });
   activate(0);
 })();
@@ -360,7 +372,7 @@ function $$(sel, root) { return Array.prototype.slice.call((root || document).qu
     }
     if (img.getAttribute("src") === src) return;
     window.clearTimeout(timer);
-    var apply = function () { img.src = src; img.alt = tile.getAttribute("data-alt") || ""; img.classList.remove("is-swapping"); };
+    var apply = function () { img.src = src; img.alt = tile.getAttribute("data-alt") || ""; img.classList.remove("is-swapping"); fresh(img); };
     if (REDUCED) { apply(); return; }
     img.classList.add("is-swapping");
     timer = window.setTimeout(apply, 160);
