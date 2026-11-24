@@ -123,6 +123,19 @@ with sync_playwright() as p:
         check("dot click scrolls carousel", m.evaluate("document.querySelector('.awards__grid').scrollLeft") > 50)
     check("no horizontal page scroll on mobile", m.evaluate("document.documentElement.scrollWidth") == 390)
 
+    # Placeholder links don't jump to top
+    pg.evaluate("document.querySelector('.industries').scrollIntoView()"); pg.wait_for_timeout(300)
+    y0 = pg.evaluate("scrollY")
+    pg.evaluate("document.querySelector('.industries__foot .btn').click()"); pg.wait_for_timeout(300)
+    check("href=# link keeps scroll position", abs(pg.evaluate("scrollY") - y0) < 5)
+
+    # Testimonial wide image never cropped (ratio 750:413) at laptop widths
+    for w in (1440, 1280, 1200):
+        pg.set_viewport_size({"width": w, "height": 900}); pg.wait_for_timeout(700)
+        r = pg.evaluate("(()=>{const c=document.querySelector('.t-card.is-active');return c.offsetWidth/c.offsetHeight})()")
+        check(f"testimonial quote uncropped at {w}", abs(r - 750/413) < 0.04, round(r, 3))
+    pg.set_viewport_size({"width": 1440, "height": 900})
+
     check("no JS errors", not errs, errs[:3])
     b.close()
 

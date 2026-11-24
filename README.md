@@ -46,7 +46,7 @@ Every section carries its `data-node-id` for traceability.
 ## Interactions and motion
 - **Tabs** (services, FAQ): WAI-ARIA tabs with arrow/Home/End keys. On services, a red pill slides to the active tab. Panels cross-fade.
 - **Accordions** (solutions, go-live, FAQ): one item open at a time, with animated height and correct `aria-expanded` state. In solutions and go-live, opening an item cross-fades the screenshot or photo to match (content from Figma frames `1:5625`, `1:9388`, `1:9667`, `1:5526`, `1:5558`, `1:5592`).
-- **Testimonials** (Figma `1:3817`, `1:5022`, `1:5032`): the active card expands to the wide layout with its quote; hover, focus or click another card to switch (column widths animate). Below 1200px every card shows a logo photo with its quote as live text.
+- **Testimonials** (Figma `1:3817`, `1:5022`, `1:5032`): the active card expands to the wide layout with its quote; hover (after a short delay, so sweeping the pointer across doesn't flicker), focus or click another card to switch (column widths animate). The row height follows the wide column, so the quote is never cropped. Below 1200px every card shows a logo photo with its quote as live text.
 - **Case studies** (Figma client cards `1:4613`–`1:5013`): hover, focus or click a client logo to show that client's story in the large card; the play button retitles to match.
 - **Service tabs 2–7** use the Figma frames `1:10306`–`1:11094` (copy, button labels and visuals).
 - **Carousels** (awards, Clutch): CSS scroll-snap. Dots appear and prev/next arrows disable only when there is something to scroll.
@@ -63,6 +63,9 @@ Every section carries its `data-node-id` for traceability.
   - The Clutch stars light up in sequence.
   - Map pins drop in and their rings pulse.
   - Arrow links nudge once.
+  - Switching a service tab staggers its check marks, bullets and button in, and the visual settles with a soft zoom.
+  - Swapped images (case-study card, solution screen, go-live photo) cross-fade and settle with a soft zoom.
+  - The newly active testimonial's quote rises in, and a selected case-study logo draws its red outline.
   - The existing header scroll state, hero headline sheen and Nexus diagram animations are kept.
 - Motion only uses opacity and transform. With `prefers-reduced-motion: reduce`, everything renders static (the marquee becomes a wrapped list). With JavaScript off, all content is visible.
 
@@ -93,5 +96,5 @@ Every section carries its `data-node-id` for traceability.
     - Social links are `#`.
     - The Figma frame also has a "Copyright © 2025 Folio3 FoodTech" bar from another brand. It was left out on purpose.
 12. **Icons.** Font Awesome Pro icons are replaced with inline SVG approximations. Swap in your icon set if you have the licence.
-13. **Link targets.** "View all …" buttons, nav items and chips point to `#`.
+13. **Link targets.** "View all …" buttons, nav items and chips point to `#`. A small script stops these placeholders from jumping to the top of the page; it no longer matters once real URLs are in.
 14. **Off-canvas layers.** Several layers sit outside the 1920 frame in Figma (a "Start The Transformation" button, ellipses and a bitmap). These are treated as leftovers and not built.
